@@ -373,6 +373,7 @@ GameObject:
   - component: {fileID: 1528796412}
   - component: {fileID: 1528796414}
   - component: {fileID: 1528796415}
+  - component: {fileID: 1528796416}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -441,7 +442,7 @@ Transform:
   m_GameObject: {fileID: 1528796409}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.16, y: 2.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -500,6 +501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 50
+  speed: 0
 --- !u!58 &1528796415
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -535,6 +537,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1528796416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528796409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bdcc96fb7d1cc44cb9532098e1ad9c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3917901116517410109, guid: 39d4df6705570584ab26c7fd79d6b806, type: 3}
+  secondsBetweenShots: 0.1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

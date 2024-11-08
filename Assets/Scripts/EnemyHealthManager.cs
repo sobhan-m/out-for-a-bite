@@ -38,11 +38,15 @@ public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
         IDamageDealer damageDealer = collision.GetComponent<IDamageDealer>();
         if (damageDealer == null)
         {
-            Debug.Log("Not damage dealer.");
             return;
         }
 
         TakeDamage(damageDealer.GetDamageAmount());
+
+        if (collision.GetComponent<Bullet>() != null)
+        {
+            GameObject.Destroy(collision.gameObject);
+        }
     }
 
 
