@@ -16,6 +16,9 @@ public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
 
     public void Die()
     {
+        FangDropper fangDropper = GetComponent<FangDropper>();
+        fangDropper.DropFangs();
+
         Destroy(gameObject);
     }
 
