@@ -6,15 +6,16 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovementController : MonoBehaviour
 {
-    [SerializeField] InputActionAsset actions;
     [SerializeField] public float speed;
     private Rigidbody2D rigidBody;
     private InputAction moveAction;
+    private InputActionAsset actions;
 
 
-    private void Start()
+    private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        actions = FindObjectOfType<InputActionContainingSystem>().actions;
         moveAction = actions.FindActionMap("Player").FindAction("Move");
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerShootingController : MonoBehaviour
 {
@@ -9,20 +10,27 @@ public class PlayerShootingController : MonoBehaviour
     [SerializeField] public float secondsBetweenShots;
     private Meter shootingCooldown;
     private Camera cam;
+    private InputActionAsset actions;
+    private InputAction shootAction;
 
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        actions = FindObjectOfType<InputActionContainingSystem>().actions;
+        Debug.Log(actions);
+        shootAction = actions.FindActionMap("Player").FindAction("Shoot");
+    }
+
     void Start()
     {
         shootingCooldown = new Meter(0, secondsBetweenShots);
         cam = Camera.main;
     }
 
-    // Update is called once per frame
     void Update()
     {
         shootingCooldown.EmptyMeter(Time.deltaTime);
-        if (ShouldShoot())
+        if (shootAction.IsPressed() && shootingCooldown.IsEmpty())
         {
             Shoot();
         }
@@ -44,9 +52,13 @@ public class PlayerShootingController : MonoBehaviour
         shootingCooldown.FillMeter();
     }
 
-    private bool ShouldShoot()
+    private void OnEnable()
     {
-        float x = Input.GetAxis("Fire1");
-        return x > Mathf.Epsilon && shootingCooldown.IsEmpty();
+        shootAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        shootAction.Disable();
     }
 }
