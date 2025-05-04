@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,12 +11,16 @@ public class PlayerShootingController : MonoBehaviour
     [SerializeField] public float secondsBetweenShots;
     [SerializeField] public int magSize;
     [SerializeField] public float secondsBeforeReload;
+    [Range(0f, 1f)] [SerializeField] public float instaReloadMinPercentage;
+    [Range(0f, 1f)] [SerializeField] public float instaReloadMaxPercentage;
     private Meter shootingCooldown;
     private Meter mag;
     private Camera cam;
     private InputActionAsset actions;
     private InputAction shootAction;
-    private Meter reloadCooldown;
+    private InputAction instaReload;
+    public Meter reloadCooldown { get; private set; }
+    private bool canInstaReload = true;
 
 
     private void Awake()
@@ -23,13 +28,11 @@ public class PlayerShootingController : MonoBehaviour
         actions = FindObjectOfType<InputActionContainingSystem>().actions;
         shootAction = actions.FindActionMap("Player").FindAction("Shoot");
         shootAction.performed += OnShoot;
-    }
-
-    void Start()
-    {
+        instaReload = actions.FindActionMap("Player").FindAction("InstaReload");
+        instaReload.performed += OnInstaReload;
         shootingCooldown = new Meter(0, secondsBetweenShots);
         mag = new Meter(0, magSize, magSize);
-        reloadCooldown = new Meter(0, secondsBeforeReload);
+        reloadCooldown = new Meter(0, secondsBeforeReload, secondsBeforeReload);
         cam = Camera.main;
     }
 
@@ -77,10 +80,40 @@ public class PlayerShootingController : MonoBehaviour
             reloadCooldown.EmptyMeter(Time.deltaTime);
             if (reloadCooldown.IsEmpty())
             {
-                reloadCooldown.FillMeter();
-                mag.FillMeter();
+                Reload();
             }
         }
+    }
+
+    private void Reload()
+    {
+        reloadCooldown.FillMeter();
+        mag.FillMeter();
+        canInstaReload = true;
+    }
+
+    private void OnInstaReload(InputAction.CallbackContext context)
+    {
+        if (!canInstaReload || reloadCooldown.IsFull())
+        {
+            return;
+        }
+
+        bool isBelowMax = reloadCooldown.currentValue <= reloadCooldown.maxValue * instaReloadMaxPercentage;
+        bool isAboveMin = reloadCooldown.currentValue >= reloadCooldown.maxValue * instaReloadMinPercentage;
+
+        Debug.Log("reloadCooldown.currentValue = " + reloadCooldown.currentValue);
+        Debug.Log("reloadCooldown.maxValue = " + reloadCooldown.maxValue);
+        Debug.Log("reloadCooldown.maxValue * instaReloadMaxPercentage = " + reloadCooldown.maxValue * instaReloadMaxPercentage);
+        Debug.Log("reloadCooldown.maxValue * instaReloadMinPercentage = " + reloadCooldown.maxValue * instaReloadMinPercentage);
+        Debug.Log("isBelowMax = " + isBelowMax);
+        Debug.Log("isAboveMin = " + isAboveMin);
+
+        if (isBelowMax && isAboveMin)
+        {
+            Reload();
+        }
+        canInstaReload = false;
     }
 
     private void OnEnable()

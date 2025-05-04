@@ -27,7 +27,6 @@ public class PlayerMovementController : MonoBehaviour
     private void Move()
     {
         Vector2 movement = moveAction.ReadValue<Vector2>() * speed;
-        Debug.Log("movement" + movement);
 
         rigidBody.velocity = movement;
     }

@@ -7,7 +7,6 @@ public class Fang : MonoBehaviour, IPickupable
     public void PickUp()
     {
         FangCounter.IncrementCount();
-        Debug.Log(FangCounter.count);
         Destroy(gameObject);
     }
 }
