@@ -948,6 +948,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5243995928313565316, guid: 619f8de49556eb4439bc3dcc1db163e5, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1077,6 +1081,14 @@ PrefabInstance:
     - target: {fileID: 4865225061628360338, guid: 6aee853a1bee24c4bb296f0304c1626b, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5701682799528892661, guid: 6aee853a1bee24c4bb296f0304c1626b, type: 3}
+      propertyPath: m_Radius
+      value: 0.33641788
+      objectReference: {fileID: 0}
+    - target: {fileID: 5701682799528892661, guid: 6aee853a1bee24c4bb296f0304c1626b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6071126022882432193, guid: 6aee853a1bee24c4bb296f0304c1626b, type: 3}
       propertyPath: actions

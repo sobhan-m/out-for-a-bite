@@ -19,6 +19,7 @@ public class PlayerShootingController : MonoBehaviour
     private InputActionAsset actions;
     private InputAction shootAction;
     private InputAction instaReload;
+    private SpriteRenderer spriteRenderer;
     public Meter reloadCooldown { get; private set; }
     private bool canInstaReload = true;
 
@@ -34,10 +35,13 @@ public class PlayerShootingController : MonoBehaviour
         mag = new Meter(0, magSize, magSize);
         reloadCooldown = new Meter(0, secondsBeforeReload, secondsBeforeReload);
         cam = Camera.main;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
+        TurnToFaceMouse(FindCharacterMouseDiff().x <= 0);
         CooldownShooting();
         CooldownReload();
     }
@@ -46,11 +50,7 @@ public class PlayerShootingController : MonoBehaviour
     {
         mag.EmptyMeter(1);
 
-        Vector3 mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = gameObject.transform.position.z;
-        Vector3 currentPosition = gameObject.transform.position;
-
-        Vector3 diff = mousePosition - currentPosition;
+        Vector3 diff = FindCharacterMouseDiff();
         float speed = bulletPrefab.GetComponent<Bullet>().speed;
         Vector3 bulletVelocity = diff.normalized * speed;
 
@@ -124,5 +124,20 @@ public class PlayerShootingController : MonoBehaviour
     private void OnDisable()
     {
         shootAction.Disable();
+    }
+
+    private void TurnToFaceMouse(bool isLeft)
+    {
+        spriteRenderer.flipX = isLeft;
+    }
+
+    private Vector3 FindCharacterMouseDiff()
+    {
+        Vector3 mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = gameObject.transform.position.z;
+        Vector3 currentPosition = gameObject.transform.position;
+
+        Vector3 diff = mousePosition - currentPosition;
+        return diff;
     }
 }
