@@ -8,6 +8,12 @@ public class EnemyMovementManager : MonoBehaviour
     [SerializeField] private float speed;
     private EnemyTarget enemyTarget;
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +37,8 @@ public class EnemyMovementManager : MonoBehaviour
 
 
         Vector3 vectorToTarget = enemyTarget.transform.position - transform.position;
+        AdjustSpriteToFollowEnemy(vectorToTarget.x <= 0);
+
         Vector3 velocity = vectorToTarget.normalized * speed * Time.fixedDeltaTime;
         rb.MovePosition(transform.position + velocity);
     }
@@ -50,5 +58,10 @@ public class EnemyMovementManager : MonoBehaviour
             }
         }
         return closestEnemyTarget;
+    }
+
+    private void AdjustSpriteToFollowEnemy(bool isLeft)
+    {
+        spriteRenderer.flipX = isLeft;
     }
 }
