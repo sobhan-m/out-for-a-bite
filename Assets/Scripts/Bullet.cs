@@ -11,4 +11,12 @@ public class Bullet : MonoBehaviour, IDamageDealer
     {
         return damageAmount;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer(LayerService.WALL_LAYER))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
