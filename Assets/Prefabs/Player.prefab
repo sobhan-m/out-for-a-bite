@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2412259339798177991}
   - component: {fileID: 1335113651566803461}
   - component: {fileID: 6071126022882432193}
-  - component: {fileID: 7857326588981188177}
   - component: {fileID: 2650819202431538899}
   - component: {fileID: 5821453490491262855}
   - component: {fileID: 7851064322961738164}
@@ -175,21 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ffab55dfd5bea47a1cd891e1330b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
---- !u!114 &7857326588981188177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4865225061628360338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0058b047390389841ac818382e89baa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAmount: 50
-  speed: 0
+  speed: 5
 --- !u!114 &2650819202431538899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3917901116517410109, guid: 39d4df6705570584ab26c7fd79d6b806, type: 3}
-  secondsBetweenShots: 0.1
+  secondsBetweenShots: 0.25
   magSize: 10
   secondsBeforeReload: 2
   instaReloadMinPercentage: 0.5
