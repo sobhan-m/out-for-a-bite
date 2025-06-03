@@ -41,7 +41,7 @@ public class PlayerShootingController : MonoBehaviour
 
     void Update()
     {
-        TurnToFaceMouse(FindCharacterMouseDiff().x <= 0);
+        TurnToFaceMouse(IsFacingLeft());
         CooldownShooting();
         CooldownReload();
     }
@@ -50,12 +50,7 @@ public class PlayerShootingController : MonoBehaviour
     {
         mag.EmptyMeter(1);
 
-        Vector3 diff = FindCharacterMouseDiff();
-        float speed = bulletPrefab.GetComponent<Bullet>().speed;
-        Vector3 bulletVelocity = diff.normalized * speed;
-
-        GameObject bullet = GameObject.Instantiate(bulletPrefab, gameObject.transform.position, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().velocity = bulletVelocity;
+        CreateBullet();
 
         shootingCooldown.FillMeter();
     }
@@ -139,5 +134,33 @@ public class PlayerShootingController : MonoBehaviour
 
         Vector3 diff = mousePosition - currentPosition;
         return diff;
+    }
+
+    private void TurnBulletFaceMouse(bool isLeft, SpriteRenderer bulletSprite)
+    {
+        bulletSprite.flipY = isLeft;
+    }
+
+    private float FindBulletAngle()
+    {
+        Vector2 playerMouseVector = FindCharacterMouseDiff();
+        float angleRadian = Mathf.Atan2(playerMouseVector.y, playerMouseVector.x);
+        return angleRadian * Mathf.Rad2Deg;
+    }
+
+    private bool IsFacingLeft()
+    {
+        return FindCharacterMouseDiff().x <= 0;
+    }
+
+    private void CreateBullet()
+    {
+        Vector3 diff = FindCharacterMouseDiff();
+        float speed = bulletPrefab.GetComponent<Bullet>().speed;
+        Vector3 bulletVelocity = diff.normalized * speed;
+
+        GameObject bullet = GameObject.Instantiate(bulletPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, FindBulletAngle()));
+        TurnBulletFaceMouse(IsFacingLeft(), bullet.GetComponent<SpriteRenderer>());
+        bullet.GetComponent<Rigidbody2D>().velocity = bulletVelocity;
     }
 }
