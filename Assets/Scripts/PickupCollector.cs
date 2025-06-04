@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FangCollector : MonoBehaviour
+public class PickupCollector : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Fang fang = collision.GetComponent<Fang>();
+        IPickupable pickup = collision.GetComponent<IPickupable>();
 
-
-        if (fang == null )
+        if (pickup == null)
         {
             return;
         }
 
-        fang.PickUp();
+        pickup.PickUp();
     }
 }
