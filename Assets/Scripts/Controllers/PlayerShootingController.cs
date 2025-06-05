@@ -25,7 +25,7 @@ public class PlayerShootingController : MonoBehaviour
     // Bullet Count
     [InspectorLabel("Bullet Count")]
     [SerializeField] public int magSize;
-    private GunMagazine magazine;
+    public GunMagazine magazine { get; private set; }
     private BulletReserve bulletReserve;
 
     // Input
@@ -103,15 +103,27 @@ public class PlayerShootingController : MonoBehaviour
             return;
         }
 
-        bool isBelowMax = reloadCooldown.currentValue <= reloadCooldown.maxValue * instaReloadMaxPercentage;
-        bool isAboveMin = reloadCooldown.currentValue >= reloadCooldown.maxValue * instaReloadMinPercentage;
-
-
-        if (isBelowMax && isAboveMin)
+        if (IsInInstaReloadInterval())
         {
             Reload();
         }
         canInstaReload = false;
+    }
+
+    // ====================================
+    //           PUBLIC METHODS
+    // ====================================
+
+    public bool IsReloading()
+    {
+        return magazine.IsEmpty() && bulletReserve.bulletCount != 0;
+    }
+
+    public bool IsInInstaReloadInterval()
+    {
+        bool isBelowMax = reloadCooldown.currentValue <= reloadCooldown.maxValue * instaReloadMaxPercentage;
+        bool isAboveMin = reloadCooldown.currentValue >= reloadCooldown.maxValue * instaReloadMinPercentage;
+        return isBelowMax && isAboveMin;
     }
 
     // ====================================
@@ -134,7 +146,7 @@ public class PlayerShootingController : MonoBehaviour
 
     private void CooldownReload()
     {
-        if (magazine.IsEmpty() && bulletReserve.bulletCount != 0)
+        if (IsReloading())
         {
             reloadCooldown.EmptyMeter(Time.deltaTime);
             if (reloadCooldown.IsEmpty())
