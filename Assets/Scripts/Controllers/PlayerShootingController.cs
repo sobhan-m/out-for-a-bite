@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.Timeline.Actions;
 using UnityEngine;
@@ -7,36 +8,57 @@ using UnityEngine.InputSystem;
 
 public class PlayerShootingController : MonoBehaviour
 {
+    // Shooting
+    [InspectorLabel("Shooting")]
     [SerializeField] public GameObject bulletPrefab;
     [SerializeField] public float secondsBetweenShots;
-    [SerializeField] public int magSize;
-    [SerializeField] public float secondsBeforeReload;
-    [Range(0f, 1f)] [SerializeField] public float instaReloadMinPercentage;
-    [Range(0f, 1f)] [SerializeField] public float instaReloadMaxPercentage;
     private Meter shootingCooldown;
-    private GunMagazine magazine;
-    private Camera cam;
-    private InputActionAsset actions;
-    private InputAction shootAction;
-    private InputAction instaReload;
-    private SpriteRenderer spriteRenderer;
+
+    // Reload
+    [InspectorLabel("Reload")]
+    [SerializeField] public float secondsBeforeReload;
+    [Range(0f, 1f)][SerializeField] public float instaReloadMinPercentage;
+    [Range(0f, 1f)][SerializeField] public float instaReloadMaxPercentage;
     public Meter reloadCooldown { get; private set; }
     private bool canInstaReload = true;
 
+    // Bullet Count
+    [InspectorLabel("Bullet Count")]
+    [SerializeField] public int magSize;
+    private GunMagazine magazine;
     private BulletReserve bulletReserve;
+
+    // Input
+    private InputActionAsset actions;
+    private InputAction shootAction;
+    private InputAction instaReload;
+    private InputAction reload;
+
+    // General
+    private Camera cam;
+    private SpriteRenderer spriteRenderer;
+
+    // ====================================
+    //               EVENTS
+    // ====================================
 
     private void Awake()
     {
-        bulletReserve = FindObjectOfType<BulletReserve>();
         actions = FindObjectOfType<InputActionContainingSystem>().actions;
         shootAction = actions.FindActionMap("Player").FindAction("Shoot");
-        shootAction.performed += OnShoot;
         instaReload = actions.FindActionMap("Player").FindAction("InstaReload");
+        reload = actions.FindActionMap("Player").FindAction("Reload");
+        shootAction.performed += OnShoot;
         instaReload.performed += OnInstaReload;
+        reload.performed += OnReload;
+
+        bulletReserve = FindObjectOfType<BulletReserve>();
+        magazine = new GunMagazine(magSize);
+
         shootingCooldown = new Meter(0, secondsBetweenShots);
         reloadCooldown = new Meter(0, secondsBeforeReload, secondsBeforeReload);
+        
         cam = Camera.main;
-        magazine = new GunMagazine(magSize);
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -47,14 +69,19 @@ public class PlayerShootingController : MonoBehaviour
         CooldownReload();
     }
 
-    private void Shoot()
+    private void OnEnable()
     {
-        magazine.EmptyShot();
-
-        CreateBullet();
-
-        shootingCooldown.FillMeter();
+        shootAction.Enable();
     }
+
+    private void OnDisable()
+    {
+        shootAction.Disable();
+    }
+
+    // ====================================
+    //           INPUT HANDLERS
+    // ====================================
 
     private void OnShoot(InputAction.CallbackContext context)
     {
@@ -64,6 +91,42 @@ public class PlayerShootingController : MonoBehaviour
         }
     }
 
+    private void OnReload(InputAction.CallbackContext context)
+    {
+        magazine.EmptyMagazine();
+    }
+
+    private void OnInstaReload(InputAction.CallbackContext context)
+    {
+        if (!canInstaReload || reloadCooldown.IsFull())
+        {
+            return;
+        }
+
+        bool isBelowMax = reloadCooldown.currentValue <= reloadCooldown.maxValue * instaReloadMaxPercentage;
+        bool isAboveMin = reloadCooldown.currentValue >= reloadCooldown.maxValue * instaReloadMinPercentage;
+
+
+        if (isBelowMax && isAboveMin)
+        {
+            Reload();
+        }
+        canInstaReload = false;
+    }
+
+    // ====================================
+    //           PRIVATE METHODS
+    // ====================================
+
+    private void Shoot()
+    {
+        magazine.EmptyShot();
+
+        CreateBullet();
+
+        shootingCooldown.FillMeter();
+    }
+    
     private void CooldownShooting()
     {
         shootingCooldown.EmptyMeter(Time.deltaTime);
@@ -89,34 +152,6 @@ public class PlayerShootingController : MonoBehaviour
         magazine.Reload(bulletsFetched);
 
         canInstaReload = true;
-    }
-
-    private void OnInstaReload(InputAction.CallbackContext context)
-    {
-        if (!canInstaReload || reloadCooldown.IsFull())
-        {
-            return;
-        }
-
-        bool isBelowMax = reloadCooldown.currentValue <= reloadCooldown.maxValue * instaReloadMaxPercentage;
-        bool isAboveMin = reloadCooldown.currentValue >= reloadCooldown.maxValue * instaReloadMinPercentage;
-
-
-        if (isBelowMax && isAboveMin)
-        {
-            Reload();
-        }
-        canInstaReload = false;
-    }
-
-    private void OnEnable()
-    {
-        shootAction.Enable();
-    }
-
-    private void OnDisable()
-    {
-        shootAction.Disable();
     }
 
     private void TurnToFaceMouse(bool isLeft)
