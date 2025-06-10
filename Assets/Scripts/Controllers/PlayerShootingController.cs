@@ -35,7 +35,6 @@ public class PlayerShootingController : MonoBehaviour
     private InputAction reload;
 
     // General
-    private Camera cam;
     private SpriteRenderer spriteRenderer;
 
     // ====================================
@@ -58,7 +57,6 @@ public class PlayerShootingController : MonoBehaviour
         shootingCooldown = new Meter(0, secondsBetweenShots);
         reloadCooldown = new Meter(0, secondsBeforeReload, secondsBeforeReload);
         
-        cam = Camera.main;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -72,15 +70,19 @@ public class PlayerShootingController : MonoBehaviour
     private void OnEnable()
     {
         shootAction.Enable();
+        instaReload.Enable();
+        reload.Enable();
     }
 
     private void OnDisable()
     {
         shootAction.Disable();
+        instaReload.Disable();
+        reload.Disable();
     }
 
     // ====================================
-    //           INPUT HANDLERS
+    // INPUT HANDLERS
     // ====================================
 
     private void OnShoot(InputAction.CallbackContext context)
@@ -111,7 +113,7 @@ public class PlayerShootingController : MonoBehaviour
     }
 
     // ====================================
-    //           PUBLIC METHODS
+    // PUBLIC METHODS
     // ====================================
 
     public bool IsReloading()
@@ -127,7 +129,7 @@ public class PlayerShootingController : MonoBehaviour
     }
 
     // ====================================
-    //           PRIVATE METHODS
+    // PRIVATE METHODS
     // ====================================
 
     private void Shoot()
@@ -171,16 +173,6 @@ public class PlayerShootingController : MonoBehaviour
         spriteRenderer.flipX = isLeft;
     }
 
-    private Vector3 FindCharacterMouseDiff()
-    {
-        Vector3 mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = gameObject.transform.position.z;
-        Vector3 currentPosition = gameObject.transform.position;
-
-        Vector3 diff = mousePosition - currentPosition;
-        return diff;
-    }
-
     private void TurnBulletFaceMouse(bool isLeft, SpriteRenderer bulletSprite)
     {
         bulletSprite.flipY = isLeft;
@@ -188,19 +180,19 @@ public class PlayerShootingController : MonoBehaviour
 
     private float FindBulletAngle()
     {
-        Vector2 playerMouseVector = FindCharacterMouseDiff();
+        Vector2 playerMouseVector = InputService.GetDifferenceFromMouse(transform.position);
         float angleRadian = Mathf.Atan2(playerMouseVector.y, playerMouseVector.x);
         return angleRadian * Mathf.Rad2Deg;
     }
 
     private bool IsFacingLeft()
     {
-        return FindCharacterMouseDiff().x <= 0;
+        return InputService.GetDifferenceFromMouse(transform.position).x <= 0;
     }
 
     private void CreateBullet()
     {
-        Vector3 diff = FindCharacterMouseDiff();
+        Vector3 diff = InputService.GetDifferenceFromMouse(transform.position);
         float speed = bulletPrefab.GetComponent<Bullet>().speed;
         Vector3 bulletVelocity = diff.normalized * speed;
 
