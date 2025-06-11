@@ -4,4 +4,6 @@ public interface IDamageable
 
     public void ReceiveHeal(float heal);
 
+    public bool IsPlayer();
+
 }

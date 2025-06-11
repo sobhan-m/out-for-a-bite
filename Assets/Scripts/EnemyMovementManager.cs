@@ -15,14 +15,12 @@ public class EnemyMovementManager : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         enemyTarget = FindClosestEnemyTarget();
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         Move();
@@ -32,7 +30,7 @@ public class EnemyMovementManager : MonoBehaviour
     {
         if (enemyTarget == null)
         {
-            throw new MissingReferenceException("Unable to find an enemy in the scene.");
+            return;
         }
 
 
@@ -63,5 +61,14 @@ public class EnemyMovementManager : MonoBehaviour
     private void AdjustSpriteToFollowEnemy(bool isLeft)
     {
         spriteRenderer.flipX = isLeft;
+    }
+
+    // ====================================
+    // PUBLIC METHODS
+    // ====================================
+
+    public void Halt()
+    {
+        rb.velocity = Vector3.zero;
     }
 }

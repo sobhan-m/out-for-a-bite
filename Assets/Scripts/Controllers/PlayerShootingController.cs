@@ -38,7 +38,7 @@ public class PlayerShootingController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     // ====================================
-    //               EVENTS
+    //  EVENTS
     // ====================================
 
     private void Awake()

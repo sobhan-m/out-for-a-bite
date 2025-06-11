@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collision2D))]
-public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
+public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
 {
-    [SerializeField][Min(0)] public float maxHealth;
+    [SerializeField][Min(0)] private float maxHealth;
     private Meter health;
 
-    // Start is called before the first frame update
     void Start()
     {
         health = new Meter(0, maxHealth, maxHealth);
@@ -16,9 +14,7 @@ public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
 
     public void Die()
     {
-        FangDropper fangDropper = GetComponent<FangDropper>();
-        fangDropper.DropFangs();
-
+        // TODO: Go to game over screen.
         Destroy(gameObject);
     }
 
@@ -38,7 +34,7 @@ public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
 
     public bool IsPlayer()
     {
-        return false;
+        return true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,16 +45,10 @@ public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
             return;
         }
 
-        if (!damageDealer.HasTakenDamage(this) && damageDealer.ShouldTargetEnemies())
+        if (!damageDealer.HasTakenDamage(this) && damageDealer.ShouldTargetPlayer())
         {
             TakeDamage(damageDealer.GetDamageAmount());
             damageDealer.AddToObjectsTakenDamage(this);
-        }
-        
-
-        if (collision.GetComponent<Bullet>() != null)
-        {
-            GameObject.Destroy(collision.gameObject);
         }
     }
 }
