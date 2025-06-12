@@ -10,11 +10,14 @@ public class PlayerMeleeController : MonoBehaviour
     [SerializeField] private float attackDistance;
     private bool isAttacking = false;
     private InputAction meleeAction;
+    private PlayerShootingController shootingController;
 
     private void Awake()
     {
         meleeAction = FindObjectOfType<InputActionContainingSystem>().actions.FindActionMap("Player").FindAction("Melee");
         meleeAction.performed += OnAttack;
+
+        shootingController = GetComponent<PlayerShootingController>();
     }
 
     private void OnEnable()
@@ -38,6 +41,7 @@ public class PlayerMeleeController : MonoBehaviour
         }
 
         isAttacking = true;
+        shootingController.enabled = false;
         Invoke("Attack", secondsToAttack);
     }
 
@@ -46,5 +50,6 @@ public class PlayerMeleeController : MonoBehaviour
         Vector3 attackCentre = InputService.GetDifferenceFromMouse(transform.position).normalized * attackDistance + transform.position;
         Instantiate(meleeAttackPrefab, attackCentre, Quaternion.identity);
         isAttacking = false;
+        shootingController.enabled = true;
     }
 }
