@@ -32,12 +32,12 @@ public class MeleeAttackArea : MonoBehaviour, IDamageDealer
         return targets.Contains(damageable);
     }
 
-    public bool ShouldTargetPlayer()
+    public bool ShouldDamagePlayer()
     {
         return shouldTargetPlayer;
     }
 
-    public bool ShouldTargetEnemies()
+    public bool ShouldDamageEnemies()
     {
         return shouldTargetEnemies;
     }

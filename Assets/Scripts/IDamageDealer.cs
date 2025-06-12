@@ -10,6 +10,6 @@ public interface IDamageDealer
 
     public void AddToObjectsTakenDamage(IDamageable damageable);
 
-    public bool ShouldTargetPlayer();
-    public bool ShouldTargetEnemies();
+    public bool ShouldDamagePlayer();
+    public bool ShouldDamageEnemies();
 }

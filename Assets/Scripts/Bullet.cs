@@ -30,12 +30,12 @@ public class Bullet : MonoBehaviour, IDamageDealer
         }
     }
 
-    public bool ShouldTargetPlayer()
+    public bool ShouldDamagePlayer()
     {
         return false;
     }
 
-    public bool ShouldTargetEnemies()
+    public bool ShouldDamageEnemies()
     {
         return true;
     }

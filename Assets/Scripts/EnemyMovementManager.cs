@@ -37,8 +37,8 @@ public class EnemyMovementManager : MonoBehaviour
         Vector3 vectorToTarget = enemyTarget.transform.position - transform.position;
         AdjustSpriteToFollowEnemy(vectorToTarget.x <= 0);
 
-        Vector3 velocity = vectorToTarget.normalized * speed * Time.fixedDeltaTime;
-        rb.MovePosition(transform.position + velocity);
+        Vector2 velocity = vectorToTarget.normalized * speed * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + velocity);
     }
 
     private EnemyTarget FindClosestEnemyTarget()

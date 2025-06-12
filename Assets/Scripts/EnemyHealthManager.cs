@@ -8,7 +8,6 @@ public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
     [SerializeField][Min(0)] public float maxHealth;
     private Meter health;
 
-    // Start is called before the first frame update
     void Start()
     {
         health = new Meter(0, maxHealth, maxHealth);
@@ -43,19 +42,27 @@ public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        HandleDamageDealer(collision);
+        HandleBullet(collision);
+    }
+
+    private void HandleDamageDealer(Collider2D collision)
+    {
         IDamageDealer damageDealer = collision.GetComponent<IDamageDealer>();
         if (damageDealer == null)
         {
             return;
         }
 
-        if (!damageDealer.HasTakenDamage(this) && damageDealer.ShouldTargetEnemies())
+        if (!damageDealer.HasTakenDamage(this) && damageDealer.ShouldDamageEnemies())
         {
             TakeDamage(damageDealer.GetDamageAmount());
             damageDealer.AddToObjectsTakenDamage(this);
         }
-        
+    }
 
+    private void HandleBullet(Collider2D collision)
+    {
         if (collision.GetComponent<Bullet>() != null)
         {
             GameObject.Destroy(collision.gameObject);

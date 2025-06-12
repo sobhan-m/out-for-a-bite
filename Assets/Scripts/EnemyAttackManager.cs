@@ -12,14 +12,26 @@ public class EnemyAttackManager : MonoBehaviour
     [SerializeField] private float secondsToAttack;
     private bool isAttacking = false;
     private EnemyMovementManager movementManager;
+    private Rigidbody2D rb;
     private Vector3 targetPosition;
 
     private void Awake()
     {
         this.movementManager = GetComponent<EnemyMovementManager>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
+    {
+        TryAttack(collision);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        TryAttack(collision);
+    }
+
+    private void TryAttack(Collider2D collision)
     {
         if (isAttacking)
         {
@@ -39,6 +51,7 @@ public class EnemyAttackManager : MonoBehaviour
         movementManager.Halt();
         movementManager.enabled = false;
         this.targetPosition = new Vector3(targetPosition.x, targetPosition.y, targetPosition.z);
+        rb.bodyType = RigidbodyType2D.Static;
     }
 
     private void ExecuteAttack()
@@ -53,5 +66,6 @@ public class EnemyAttackManager : MonoBehaviour
     {
         isAttacking = false;
         movementManager.enabled = true;
+        rb.bodyType = RigidbodyType2D.Dynamic;
     }
 }

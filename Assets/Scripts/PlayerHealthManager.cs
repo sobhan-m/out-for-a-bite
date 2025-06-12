@@ -45,7 +45,7 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
             return;
         }
 
-        if (!damageDealer.HasTakenDamage(this) && damageDealer.ShouldTargetPlayer())
+        if (!damageDealer.HasTakenDamage(this) && damageDealer.ShouldDamagePlayer())
         {
             TakeDamage(damageDealer.GetDamageAmount());
             damageDealer.AddToObjectsTakenDamage(this);
