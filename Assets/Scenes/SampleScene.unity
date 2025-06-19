@@ -2587,6 +2587,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4865225061628360338, guid: 6aee853a1bee24c4bb296f0304c1626b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6857253933741595474}
+    - targetCorrespondingSourceObject: {fileID: 4865225061628360338, guid: 6aee853a1bee24c4bb296f0304c1626b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6857253933741595475}
   m_SourcePrefab: {fileID: 100100000, guid: 6aee853a1bee24c4bb296f0304c1626b, type: 3}
 --- !u!114 &6857253933741595471
 MonoBehaviour:
@@ -2626,7 +2629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeAttackPrefab: {fileID: 6405748592692316461, guid: aece90aa772f5ae4299ea2dc4986b1b6, type: 3}
-  secondsToAttack: 0.75
+  secondsToAttack: 0.5
   attackDistance: 0.75
 --- !u!114 &6857253933741595474
 MonoBehaviour:
@@ -2641,6 +2644,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+--- !u!95 &6857253933741595475
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415685152}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 373bf3264015ea94c88467add9020226, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &9163166333977006676
 PrefabInstance:
   m_ObjectHideFlags: 0

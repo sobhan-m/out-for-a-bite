@@ -11,6 +11,7 @@ public class PlayerMeleeController : MonoBehaviour
     private bool isAttacking = false;
     private InputAction meleeAction;
     private PlayerShootingController shootingController;
+    private Animator animator;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class PlayerMeleeController : MonoBehaviour
         meleeAction.performed += OnAttack;
 
         shootingController = GetComponent<PlayerShootingController>();
+        animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -39,6 +41,8 @@ public class PlayerMeleeController : MonoBehaviour
         if (isAttacking) {
             return;
         }
+
+        animator.SetTrigger(AnimationService.MELEE_ATTACK);
 
         isAttacking = true;
         shootingController.enabled = false;
