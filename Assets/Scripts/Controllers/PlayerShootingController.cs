@@ -178,13 +178,6 @@ public class PlayerShootingController : MonoBehaviour
         bulletSprite.flipY = isLeft;
     }
 
-    private float FindBulletAngle()
-    {
-        Vector2 playerMouseVector = InputService.GetDifferenceFromMouse(transform.position);
-        float angleRadian = Mathf.Atan2(playerMouseVector.y, playerMouseVector.x);
-        return angleRadian * Mathf.Rad2Deg;
-    }
-
     private bool IsFacingLeft()
     {
         return InputService.GetDifferenceFromMouse(transform.position).x <= 0;
@@ -196,7 +189,7 @@ public class PlayerShootingController : MonoBehaviour
         float speed = bulletPrefab.GetComponent<Bullet>().speed;
         Vector3 bulletVelocity = diff.normalized * speed;
 
-        GameObject bullet = GameObject.Instantiate(bulletPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, FindBulletAngle()));
+        GameObject bullet = GameObject.Instantiate(bulletPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, InputService.FindDegreeFromMouse(transform.position)));
         TurnBulletFaceMouse(IsFacingLeft(), bullet.GetComponent<SpriteRenderer>());
         bullet.GetComponent<Rigidbody2D>().velocity = bulletVelocity;
     }

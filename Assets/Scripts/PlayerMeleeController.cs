@@ -52,7 +52,7 @@ public class PlayerMeleeController : MonoBehaviour
     private void Attack()
     {
         Vector3 attackCentre = InputService.GetDifferenceFromMouse(transform.position).normalized * attackDistance + transform.position;
-        Instantiate(meleeAttackPrefab, attackCentre, Quaternion.identity);
+        Instantiate(meleeAttackPrefab, attackCentre, Quaternion.Euler(0, 0, InputService.FindDegreeFromMouse(transform.position)));
         isAttacking = false;
         shootingController.enabled = true;
     }

@@ -2629,7 +2629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeAttackPrefab: {fileID: 6405748592692316461, guid: aece90aa772f5ae4299ea2dc4986b1b6, type: 3}
-  secondsToAttack: 0.5
+  secondsToAttack: 0.4
   attackDistance: 0.75
 --- !u!114 &6857253933741595474
 MonoBehaviour:

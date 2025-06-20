@@ -12,4 +12,11 @@ public class InputService
         mousePosition.z = position.z;
         return mousePosition - position;
     }
+
+    public static float FindDegreeFromMouse(Vector3 position)
+    {
+        Vector3 vectorToMouse = GetDifferenceFromMouse(position);
+        float angleRadian = Mathf.Atan2(vectorToMouse.y, vectorToMouse.x);
+        return angleRadian * Mathf.Rad2Deg;
+    }
 }
