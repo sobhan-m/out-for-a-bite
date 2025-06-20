@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
 {
+    [SerializeField] private float damageTakenIndicationDuration;
     [SerializeField][Min(0)] private float maxHealth;
     private Meter health;
+    private SpriteRenderer spriteRenderer;
 
-    void Start()
+    void Awake()
     {
         health = new Meter(0, maxHealth, maxHealth);
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void Die()
@@ -25,6 +28,7 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
 
     public void TakeDamage(float damage)
     {
+        AddDamageTakenIndication();
         health.EmptyMeter(damage);
         if (health.IsEmpty())
         {
@@ -50,5 +54,16 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
             TakeDamage(damageDealer.GetDamageAmount());
             damageDealer.AddToObjectsTakenDamage(this);
         }
+    }
+
+    private void AddDamageTakenIndication()
+    {
+        spriteRenderer.color = Color.black;
+        Invoke("RemoveDamageTakenIndication", damageTakenIndicationDuration);
+    }
+
+    private void RemoveDamageTakenIndication()
+    {
+        spriteRenderer.color = Color.white;
     }
 }

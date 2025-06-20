@@ -2643,6 +2643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba0355132b7b824f852d387e6f2e633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageTakenIndicationDuration: 0.25
   maxHealth: 100
 --- !u!95 &6857253933741595475
 Animator:

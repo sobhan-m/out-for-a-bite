@@ -5,12 +5,15 @@ using UnityEngine;
 [RequireComponent(typeof(Collision2D))]
 public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
 {
+    [SerializeField] private float damageTakenIndicationDuration;
     [SerializeField][Min(0)] public float maxHealth;
     private Meter health;
+    private SpriteRenderer spriteRenderer;
 
-    void Start()
+    void Awake()
     {
         health = new Meter(0, maxHealth, maxHealth);
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void Die()
@@ -28,6 +31,7 @@ public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
 
     public void TakeDamage(float damage)
     {
+        AddDamageTakenIndication();
         health.EmptyMeter(damage);
         if (health.IsEmpty())
         {
@@ -46,7 +50,7 @@ public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
         HandleBullet(collision);
     }
 
-    private void HandleDamageDealer(Collider2D collision)
+	private void HandleDamageDealer(Collider2D collision)
     {
         IDamageDealer damageDealer = collision.GetComponent<IDamageDealer>();
         if (damageDealer == null)
@@ -67,5 +71,16 @@ public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
         {
             GameObject.Destroy(collision.gameObject);
         }
+    }
+
+    private void AddDamageTakenIndication()
+    {
+        spriteRenderer.color = Color.black;
+        Invoke("RemoveDamageTakenIndication", damageTakenIndicationDuration);
+    }
+
+    private void RemoveDamageTakenIndication()
+    {
+        spriteRenderer.color = Color.white;
     }
 }

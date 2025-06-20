@@ -14,30 +14,27 @@ public class EnemyAttackManager : MonoBehaviour
     private EnemyMovementManager movementManager;
     private Rigidbody2D rb;
     private Vector3 targetPosition;
+    private PlayerHealthManager player;
 
     private void Awake()
     {
         this.movementManager = GetComponent<EnemyMovementManager>();
         rb = GetComponent<Rigidbody2D>();
+        player = FindObjectOfType<PlayerHealthManager>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void Update()
     {
-        TryAttack(collision);
-    }
+        Vector2 distanceFromPlayer = player.transform.position - transform.position;
+        if (distanceFromPlayer.magnitude <= attackDistance)
+        {
+            TryAttack();
+        }
+	}
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        TryAttack(collision);
-    }
-
-    private void TryAttack(Collider2D collision)
+	private void TryAttack()
     {
         if (isAttacking)
-        {
-            return;
-        }
-        if (!collision.TryGetComponent<PlayerHealthManager>(out PlayerHealthManager player))
         {
             return;
         }
@@ -51,7 +48,7 @@ public class EnemyAttackManager : MonoBehaviour
         movementManager.Halt();
         movementManager.enabled = false;
         this.targetPosition = new Vector3(targetPosition.x, targetPosition.y, targetPosition.z);
-        rb.bodyType = RigidbodyType2D.Static;
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
     private void ExecuteAttack()
@@ -66,6 +63,6 @@ public class EnemyAttackManager : MonoBehaviour
     {
         isAttacking = false;
         movementManager.enabled = true;
-        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 }
