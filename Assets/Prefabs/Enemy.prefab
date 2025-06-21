@@ -219,8 +219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meleeAttack: {fileID: 6405748592692316461, guid: f3b7670489489d4428bc7725afcba2b7, type: 3}
   damageAmount: 20
-  attackDistance: 0.75
-  secondsToAttack: 1
+  attackDistance: 1.25
+  secondsToAttack: 0.6
 --- !u!95 &1779334976885864747
 Animator:
   serializedVersion: 5

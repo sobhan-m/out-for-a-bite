@@ -15,12 +15,14 @@ public class EnemyAttackManager : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 targetPosition;
     private PlayerHealthManager player;
+    private Animator animator;
 
     private void Awake()
     {
         this.movementManager = GetComponent<EnemyMovementManager>();
         rb = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<PlayerHealthManager>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -44,6 +46,7 @@ public class EnemyAttackManager : MonoBehaviour
 
     private void StartAttack(Vector3 targetPosition)
     {
+        animator.SetTrigger(AnimationService.MELEE_ATTACK);
         isAttacking = true;
         movementManager.Halt();
         movementManager.enabled = false;
