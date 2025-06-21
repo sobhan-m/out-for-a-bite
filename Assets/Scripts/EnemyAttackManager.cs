@@ -57,7 +57,11 @@ public class EnemyAttackManager : MonoBehaviour
     private void ExecuteAttack()
     {
         Vector3 attackCentre = (targetPosition - transform.position).normalized * attackDistance + transform.position;
-        Instantiate(meleeAttack, attackCentre, Quaternion.identity);
+
+        Vector3 vectorToAttack = attackCentre - transform.position;
+        float angleDegrees = Mathf.Atan2(vectorToAttack.y, vectorToAttack.x) * Mathf.Rad2Deg;
+
+        Instantiate(meleeAttack, attackCentre, Quaternion.Euler(0, 0, angleDegrees));
 
         EndAttack();
     }
