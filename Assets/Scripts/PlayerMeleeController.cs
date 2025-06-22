@@ -18,7 +18,7 @@ public class PlayerMeleeController : MonoBehaviour
         meleeAction = FindObjectOfType<InputActionContainingSystem>().actions.FindActionMap("Player").FindAction("Melee");
         meleeAction.performed += OnAttack;
 
-        shootingController = GetComponent<PlayerShootingController>();
+        shootingController = FindObjectOfType<PlayerShootingController>();
         animator = GetComponent<Animator>();
     }
 

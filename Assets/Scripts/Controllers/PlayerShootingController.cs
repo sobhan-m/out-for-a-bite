@@ -36,6 +36,7 @@ public class PlayerShootingController : MonoBehaviour
 
     // General
     private SpriteRenderer spriteRenderer;
+    // private Animator animator;
 
     // ====================================
     //  EVENTS
@@ -56,8 +57,9 @@ public class PlayerShootingController : MonoBehaviour
 
         shootingCooldown = new Meter(0, secondsBetweenShots);
         reloadCooldown = new Meter(0, secondsBeforeReload, secondsBeforeReload);
-        
+
         spriteRenderer = GetComponent<SpriteRenderer>();
+        // animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -134,6 +136,8 @@ public class PlayerShootingController : MonoBehaviour
 
     private void Shoot()
     {
+        // animator.SetTrigger(AnimationService.SHOOT);
+
         magazine.EmptyShot();
 
         CreateBullet();
@@ -170,7 +174,21 @@ public class PlayerShootingController : MonoBehaviour
 
     private void TurnToFaceMouse(bool isLeft)
     {
-        spriteRenderer.flipX = isLeft;
+        spriteRenderer.flipY = isLeft;
+        float degrees = InputService.FindDegreeFromMouse(transform.position);
+        transform.rotation = Quaternion.Euler(0, 0, degrees);
+        //int leftMultiplier = isLeft ? -1 : 1;
+        if (degrees > 0 && degrees < 180)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, 1);
+        }
+        else
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+        }
+        
+
+        
     }
 
     private void TurnBulletFaceMouse(bool isLeft, SpriteRenderer bulletSprite)

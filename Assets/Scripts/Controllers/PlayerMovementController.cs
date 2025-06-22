@@ -10,16 +10,29 @@ public class PlayerMovementController : MonoBehaviour
     private Rigidbody2D rigidBody;
     private InputAction moveAction;
     private InputActionAsset actions;
+    private SpriteRenderer spriteRenderer;
 
 
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        
         actions = FindObjectOfType<InputActionContainingSystem>().actions;
         moveAction = actions.FindActionMap("Player").FindAction("Move");
     }
 
-    void FixedUpdate()
+	void Update()
+	{
+        TurnToFaceMouse();
+	}
+
+    private void TurnToFaceMouse()
+    {
+        spriteRenderer.flipX = InputService.GetDifferenceFromMouse(transform.position).x <= 0;
+    }
+
+	void FixedUpdate()
     {
         Move();
     }
