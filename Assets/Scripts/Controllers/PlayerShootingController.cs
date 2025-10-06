@@ -36,7 +36,7 @@ public class PlayerShootingController : MonoBehaviour
 
     // General
     private SpriteRenderer spriteRenderer;
-    // private Animator animator;
+    private Animator animator;
 
     // ====================================
     //  EVENTS
@@ -59,12 +59,12 @@ public class PlayerShootingController : MonoBehaviour
         reloadCooldown = new Meter(0, secondsBeforeReload, secondsBeforeReload);
 
         spriteRenderer = GetComponent<SpriteRenderer>();
-        // animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        TurnToFaceMouse(IsFacingLeft());
+        // TurnToFaceMouse(IsFacingLeft());
         CooldownShooting();
         CooldownReload();
     }
@@ -136,7 +136,7 @@ public class PlayerShootingController : MonoBehaviour
 
     private void Shoot()
     {
-        // animator.SetTrigger(AnimationService.SHOOT);
+        animator.SetTrigger(AnimationService.SHOOT);
 
         magazine.EmptyShot();
 
@@ -177,7 +177,7 @@ public class PlayerShootingController : MonoBehaviour
         spriteRenderer.flipY = isLeft;
         float degrees = InputService.FindDegreeFromMouse(transform.position);
         transform.rotation = Quaternion.Euler(0, 0, degrees);
-        //int leftMultiplier = isLeft ? -1 : 1;
+        
         if (degrees > 0 && degrees < 180)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, 1);
