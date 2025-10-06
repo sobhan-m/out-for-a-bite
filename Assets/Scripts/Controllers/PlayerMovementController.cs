@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,28 +12,30 @@ public class PlayerMovementController : MonoBehaviour
     private InputAction moveAction;
     private InputActionAsset actions;
     private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
 
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        
+        animator = GetComponent<Animator>();
+
         actions = FindObjectOfType<InputActionContainingSystem>().actions;
         moveAction = actions.FindActionMap("Player").FindAction("Move");
     }
 
-	void Update()
-	{
+    void Update()
+    {
         TurnToFaceMouse();
-	}
+    }
 
     private void TurnToFaceMouse()
     {
         spriteRenderer.flipX = InputService.GetDifferenceFromMouse(transform.position).x <= 0;
     }
 
-	void FixedUpdate()
+    void FixedUpdate()
     {
         Move();
     }
@@ -42,6 +45,9 @@ public class PlayerMovementController : MonoBehaviour
         Vector2 movement = moveAction.ReadValue<Vector2>() * speed;
 
         rigidBody.velocity = movement;
+
+        bool isWalking = movement.magnitude > Mathf.Epsilon;
+        animator.SetBool(AnimationService.IS_WALKING, isWalking);
     }
 
     void OnEnable()
