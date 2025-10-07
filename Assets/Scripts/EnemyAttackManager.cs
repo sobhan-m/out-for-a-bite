@@ -14,21 +14,21 @@ public class EnemyAttackManager : MonoBehaviour
     private EnemyMovementManager movementManager;
     private Rigidbody2D rb;
     private Vector3 targetPosition;
-    private PlayerHealthManager player;
+    private EnemyTarget player;
     private Animator animator;
 
     private void Awake()
     {
         this.movementManager = GetComponent<EnemyMovementManager>();
         rb = GetComponent<Rigidbody2D>();
-        player = FindObjectOfType<PlayerHealthManager>();
+        player = FindObjectOfType<EnemyTarget>();
         animator = GetComponent<Animator>();
     }
 
     void Update()
     {
         Vector2 distanceFromPlayer = player.transform.position - transform.position;
-        if (distanceFromPlayer.magnitude <= attackDistance)
+        if (player.enabled && distanceFromPlayer.magnitude <= attackDistance)
         {
             TryAttack();
         }

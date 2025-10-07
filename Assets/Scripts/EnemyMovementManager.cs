@@ -28,7 +28,7 @@ public class EnemyMovementManager : MonoBehaviour
 
     private void Move()
     {
-        if (enemyTarget == null)
+        if (enemyTarget == null || !enemyTarget.enabled)
         {
             return;
         }
