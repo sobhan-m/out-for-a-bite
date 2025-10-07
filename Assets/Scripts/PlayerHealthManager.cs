@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
 {
@@ -8,6 +9,8 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
     [SerializeField][Min(0)] private float maxHealth;
     private Meter health;
     private SpriteRenderer spriteRenderer;
+
+    public UnityEvent deathEvent;
 
     void Awake()
     {
@@ -17,8 +20,9 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
 
     public void Die()
     {
-        // TODO: Go to game over screen.
-        Destroy(gameObject);
+        spriteRenderer.color = Color.white;
+        this.enabled = false;
+        deathEvent.Invoke();
     }
 
     public void ReceiveHeal(float heal)

@@ -24,4 +24,14 @@ public class PlayerAnimationController : MonoBehaviour
     {
         animator.SetBool(AnimationService.IS_WALKING, isWalking);
     }
+
+    public void OnDeath()
+    {
+        animator.SetTrigger(AnimationService.DEATH);
+    }
+
+    public void DisableAnimator()
+    {
+        animator.enabled = false;
+    }
 }
