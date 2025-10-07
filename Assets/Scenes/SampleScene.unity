@@ -2562,132 +2562,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2412259339798177991, guid: 6aee853a1bee24c4bb296f0304c1626b, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4865225061628360338, guid: 6aee853a1bee24c4bb296f0304c1626b, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5821453490491262855, guid: 6aee853a1bee24c4bb296f0304c1626b, type: 3}
-    - {fileID: 2650819202431538899, guid: 6aee853a1bee24c4bb296f0304c1626b, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4865225061628360338, guid: 6aee853a1bee24c4bb296f0304c1626b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6857253933741595471}
-    - targetCorrespondingSourceObject: {fileID: 4865225061628360338, guid: 6aee853a1bee24c4bb296f0304c1626b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6857253933741595472}
-    - targetCorrespondingSourceObject: {fileID: 4865225061628360338, guid: 6aee853a1bee24c4bb296f0304c1626b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6857253933741595473}
-    - targetCorrespondingSourceObject: {fileID: 4865225061628360338, guid: 6aee853a1bee24c4bb296f0304c1626b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6857253933741595474}
-    - targetCorrespondingSourceObject: {fileID: 4865225061628360338, guid: 6aee853a1bee24c4bb296f0304c1626b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6857253933741595475}
-    - targetCorrespondingSourceObject: {fileID: 4865225061628360338, guid: 6aee853a1bee24c4bb296f0304c1626b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6857253933741595488}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aee853a1bee24c4bb296f0304c1626b, type: 3}
---- !u!114 &6857253933741595471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415685152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4fbbd41361a52b41b5599dbc4752602, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletCount: 12
---- !u!114 &6857253933741595472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415685152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e7596e9639bbc64cb29b01c28a40bf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6857253933741595473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415685152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92ed60cc374fd1e48842d8716f1af2c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meleeAttackPrefab: {fileID: 6405748592692316461, guid: aece90aa772f5ae4299ea2dc4986b1b6, type: 3}
-  secondsToAttack: 0.4
-  attackDistance: 0.75
---- !u!114 &6857253933741595474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415685152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ba0355132b7b824f852d387e6f2e633, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageTakenIndicationDuration: 0.25
-  maxHealth: 100
---- !u!95 &6857253933741595475
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415685152}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 373bf3264015ea94c88467add9020226, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6857253933741595488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415685152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bdcc96fb7d1cc44cb9532098e1ad9c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 3917901116517410109, guid: 39d4df6705570584ab26c7fd79d6b806, type: 3}
-  secondsBetweenShots: 0.25
-  secondsBeforeReload: 2
-  instaReloadMinPercentage: 0.5
-  instaReloadMaxPercentage: 0.8
-  magSize: 10
 --- !u!1001 &9163166333977006676
 PrefabInstance:
   m_ObjectHideFlags: 0
