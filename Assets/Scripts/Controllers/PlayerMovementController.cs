@@ -1,7 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -12,14 +10,14 @@ public class PlayerMovementController : MonoBehaviour
     private InputAction moveAction;
     private InputActionAsset actions;
     private SpriteRenderer spriteRenderer;
-    private Animator animator;
+    private bool isWalking = false;
 
+    public UnityEvent<bool> isWalkingEvent;
 
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
 
         actions = FindObjectOfType<InputActionContainingSystem>().actions;
         moveAction = actions.FindActionMap("Player").FindAction("Move");
@@ -46,8 +44,12 @@ public class PlayerMovementController : MonoBehaviour
 
         rigidBody.velocity = movement;
 
-        bool isWalking = movement.magnitude > Mathf.Epsilon;
-        animator.SetBool(AnimationService.IS_WALKING, isWalking);
+        bool isGoingToWalk = movement.magnitude > Mathf.Epsilon;
+        if (isGoingToWalk != isWalking)
+        {
+            isWalking = isGoingToWalk;
+            isWalkingEvent.Invoke(isWalking);
+        }
     }
 
     void OnEnable()

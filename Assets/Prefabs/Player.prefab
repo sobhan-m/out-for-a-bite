@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 7873148744619767030}
   - component: {fileID: 50958437201661238}
   - component: {fileID: 5645335604651046891}
+  - component: {fileID: 1789960356877709375}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -179,6 +180,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  isWalkingEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1789960356877709375}
+        m_TargetAssemblyTypeName: PlayerAnimationController, Assembly-CSharp
+        m_MethodName: OnIsWalking
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7851064322961738164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +247,21 @@ MonoBehaviour:
   meleeAttackPrefab: {fileID: 6405748592692316461, guid: aece90aa772f5ae4299ea2dc4986b1b6, type: 3}
   secondsToAttack: 0.4
   attackDistance: 0.75
+  meleeEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1789960356877709375}
+        m_TargetAssemblyTypeName: PlayerAnimationController, Assembly-CSharp
+        m_MethodName: OnMelee
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7873148744619767030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,3 +315,30 @@ MonoBehaviour:
   instaReloadMinPercentage: 0.5
   instaReloadMaxPercentage: 0.8
   magSize: 10
+  shootEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1789960356877709375}
+        m_TargetAssemblyTypeName: PlayerAnimationController, Assembly-CSharp
+        m_MethodName: OnShoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1789960356877709375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4865225061628360338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d6edae4d0138742b26f3e4ff54cd7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

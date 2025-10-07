@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerMeleeController : MonoBehaviour
@@ -11,7 +10,8 @@ public class PlayerMeleeController : MonoBehaviour
     private bool isAttacking = false;
     private InputAction meleeAction;
     private PlayerShootingController shootingController;
-    private Animator animator;
+
+    public UnityEvent meleeEvent;
 
     private void Awake()
     {
@@ -19,7 +19,6 @@ public class PlayerMeleeController : MonoBehaviour
         meleeAction.performed += OnAttack;
 
         shootingController = FindObjectOfType<PlayerShootingController>();
-        animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -42,7 +41,7 @@ public class PlayerMeleeController : MonoBehaviour
             return;
         }
 
-        animator.SetTrigger(AnimationService.MELEE_ATTACK);
+        meleeEvent.Invoke();
 
         isAttacking = true;
         shootingController.enabled = false;

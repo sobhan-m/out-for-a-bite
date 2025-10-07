@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerShootingController : MonoBehaviour
@@ -36,7 +33,9 @@ public class PlayerShootingController : MonoBehaviour
 
     // General
     private SpriteRenderer spriteRenderer;
-    private Animator animator;
+
+    // Unity Events
+    public UnityEvent shootEvent;
 
     // ====================================
     //  EVENTS
@@ -59,7 +58,6 @@ public class PlayerShootingController : MonoBehaviour
         reloadCooldown = new Meter(0, secondsBeforeReload, secondsBeforeReload);
 
         spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -136,7 +134,7 @@ public class PlayerShootingController : MonoBehaviour
 
     private void Shoot()
     {
-        animator.SetTrigger(AnimationService.SHOOT);
+        shootEvent.Invoke();
 
         magazine.EmptyShot();
 
