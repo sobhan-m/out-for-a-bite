@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6807115183282992132}
   - component: {fileID: 7512839727554785905}
   - component: {fileID: 1779334976885864747}
+  - component: {fileID: 395346455735121805}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -159,7 +160,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3dcaaf0571cc5a4d93affd05646b18a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetRange: 9999
   speed: 7
+  isWalkingEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 395346455735121805}
+        m_TargetAssemblyTypeName: EnemyAnimationManager, Assembly-CSharp
+        m_MethodName: OnIsWalking
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &6807115183282992132
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -221,6 +238,48 @@ MonoBehaviour:
   damageAmount: 20
   attackDistance: 1.25
   secondsToAttack: 0.6
+  startMeleeAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 395346455735121805}
+        m_TargetAssemblyTypeName: EnemyAnimationManager, Assembly-CSharp
+        m_MethodName: OnMelee
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4259407327160694683}
+        m_TargetAssemblyTypeName: EnemyMovementManager, Assembly-CSharp
+        m_MethodName: Halt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  endMeleeAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4259407327160694683}
+        m_TargetAssemblyTypeName: EnemyMovementManager, Assembly-CSharp
+        m_MethodName: Proceed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &1779334976885864747
 Animator:
   serializedVersion: 5
@@ -242,3 +301,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &395346455735121805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633898812276023957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022407086be93f149bdc5a4bad7215d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

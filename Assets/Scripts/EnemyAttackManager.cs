@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(EnemyMovementManager))]
 [RequireComponent(typeof(Collider2D))]
@@ -15,14 +14,15 @@ public class EnemyAttackManager : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 targetPosition;
     private EnemyTarget player;
-    private Animator animator;
+
+    public UnityEvent startMeleeAttack;
+    public UnityEvent endMeleeAttack;
 
     private void Awake()
     {
         this.movementManager = GetComponent<EnemyMovementManager>();
         rb = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<EnemyTarget>();
-        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -46,16 +46,14 @@ public class EnemyAttackManager : MonoBehaviour
 
     private void StartAttack(Vector3 targetPosition)
     {
-        animator.SetTrigger(AnimationService.MELEE_ATTACK);
+        startMeleeAttack.Invoke();
         isAttacking = true;
-        movementManager.Halt();
-        movementManager.enabled = false;
         this.targetPosition = new Vector3(targetPosition.x, targetPosition.y, targetPosition.z);
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
     private void ExecuteAttack()
     {
+        // TODO: Make this method public and make this an animation event.
         Vector3 attackCentre = (targetPosition - transform.position).normalized * attackDistance + transform.position;
 
         Vector3 vectorToAttack = attackCentre - transform.position;
@@ -69,7 +67,6 @@ public class EnemyAttackManager : MonoBehaviour
     private void EndAttack()
     {
         isAttacking = false;
-        movementManager.enabled = true;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        endMeleeAttack.Invoke();
     }
 }
