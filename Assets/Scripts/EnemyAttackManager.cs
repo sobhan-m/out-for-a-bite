@@ -8,7 +8,6 @@ public class EnemyAttackManager : MonoBehaviour
     [SerializeField] private GameObject meleeAttack;
     [SerializeField] private float damageAmount;
     [SerializeField] private float attackDistance;
-    [SerializeField] private float secondsToAttack;
     private bool isAttacking = false;
     private EnemyMovementManager movementManager;
     private Rigidbody2D rb;
@@ -32,16 +31,15 @@ public class EnemyAttackManager : MonoBehaviour
         {
             TryAttack();
         }
-	}
+    }
 
-	private void TryAttack()
+    private void TryAttack()
     {
         if (isAttacking)
         {
             return;
         }
         StartAttack(player.transform.position);
-        Invoke("ExecuteAttack", secondsToAttack);
     }
 
     private void StartAttack(Vector3 targetPosition)
@@ -51,9 +49,18 @@ public class EnemyAttackManager : MonoBehaviour
         this.targetPosition = new Vector3(targetPosition.x, targetPosition.y, targetPosition.z);
     }
 
-    private void ExecuteAttack()
+    private void EndAttack()
     {
-        // TODO: Make this method public and make this an animation event.
+        isAttacking = false;
+        endMeleeAttack.Invoke();
+    }
+
+    // ====================================
+    // PUBLIC METHODS
+    // ====================================
+    
+    public void ExecuteAttack()
+    {
         Vector3 attackCentre = (targetPosition - transform.position).normalized * attackDistance + transform.position;
 
         Vector3 vectorToAttack = attackCentre - transform.position;
@@ -62,11 +69,5 @@ public class EnemyAttackManager : MonoBehaviour
         Instantiate(meleeAttack, attackCentre, Quaternion.Euler(0, 0, angleDegrees));
 
         EndAttack();
-    }
-
-    private void EndAttack()
-    {
-        isAttacking = false;
-        endMeleeAttack.Invoke();
     }
 }
