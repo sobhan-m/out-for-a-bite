@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class PlayerMeleeController : MonoBehaviour
 {
     [SerializeField] GameObject meleeAttackPrefab;
-    [SerializeField] private float secondsToAttack;
     [SerializeField] private float attackDistance;
     private bool isAttacking = false;
     private InputAction meleeAction;
@@ -44,11 +43,14 @@ public class PlayerMeleeController : MonoBehaviour
         meleeEvent.Invoke();
 
         isAttacking = true;
-        shootingController.enabled = false;
-        Invoke("Attack", secondsToAttack);
+        shootingController.enabled = false; // TODO: control this via events. This class should be unaware of shooting.
     }
 
-    private void Attack()
+    // ====================================
+    // PUBLIC METHODS
+    // ====================================
+
+    public void Attack()
     {
         Vector3 attackCentre = InputService.GetDifferenceFromMouse(transform.position).normalized * attackDistance + transform.position;
         Instantiate(meleeAttackPrefab, attackCentre, Quaternion.Euler(0, 0, InputService.FindDegreeFromMouse(transform.position)));
