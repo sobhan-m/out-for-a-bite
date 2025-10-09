@@ -9,6 +9,7 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
     [SerializeField][Min(0)] private float maxHealth;
     private Meter health;
     private SpriteRenderer spriteRenderer;
+    private bool isDead = false;
 
     public UnityEvent deathEvent;
 
@@ -20,6 +21,11 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
 
     public void Die()
     {
+        if (isDead)
+        {
+            return;
+        }
+        isDead = true;
         spriteRenderer.color = Color.white;
         this.enabled = false;
         deathEvent.Invoke();
@@ -32,6 +38,11 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
 
     public void TakeDamage(float damage)
     {
+        if (isDead)
+        {
+            return;
+        }
+
         AddDamageTakenIndication();
         health.EmptyMeter(damage);
         if (health.IsEmpty())
