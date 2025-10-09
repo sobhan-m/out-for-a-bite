@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Collision2D))]
 public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
@@ -9,6 +8,10 @@ public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
     [SerializeField][Min(0)] public float maxHealth;
     private Meter health;
     private SpriteRenderer spriteRenderer;
+    private bool isDead = false;
+
+    [SerializeField] private UnityEvent deathEvent;
+
 
     void Awake()
     {
@@ -24,6 +27,17 @@ public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
         Destroy(gameObject);
     }
 
+    private void TriggerDeath()
+    {
+        if (isDead)
+        {
+            return;
+        }
+        isDead = true;
+        RemoveDamageTakenIndication();
+        deathEvent.Invoke();
+    }
+
     public void ReceiveHeal(float heal)
     {
         health.FillMeter(heal);
@@ -35,7 +49,7 @@ public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
         health.EmptyMeter(damage);
         if (health.IsEmpty())
         {
-            Die();
+            TriggerDeath();
         }
     }
 
