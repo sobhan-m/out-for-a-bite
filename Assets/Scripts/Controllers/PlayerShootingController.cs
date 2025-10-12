@@ -87,6 +87,11 @@ public class PlayerShootingController : MonoBehaviour
 
     private void OnShoot(InputAction.CallbackContext context)
     {
+        if (PauseController.isPaused)
+		{
+            return;
+		}
+
         if (shootingCooldown.IsEmpty() && !magazine.IsEmpty())
         {
             Shoot();
@@ -95,11 +100,22 @@ public class PlayerShootingController : MonoBehaviour
 
     private void OnReload(InputAction.CallbackContext context)
     {
+        if (PauseController.isPaused)
+		{
+            return;
+		}
+
+
         magazine.EmptyMagazine();
     }
 
     private void OnInstaReload(InputAction.CallbackContext context)
     {
+        if (PauseController.isPaused)
+		{
+            return;
+		}
+
         if (!canInstaReload || reloadCooldown.IsFull())
         {
             return;
@@ -168,25 +184,6 @@ public class PlayerShootingController : MonoBehaviour
         magazine.Reload(bulletsFetched);
 
         canInstaReload = true;
-    }
-
-    private void TurnToFaceMouse(bool isLeft)
-    {
-        spriteRenderer.flipY = isLeft;
-        float degrees = InputService.FindDegreeFromMouse(transform.position);
-        transform.rotation = Quaternion.Euler(0, 0, degrees);
-        
-        if (degrees > 0 && degrees < 180)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y, 1);
-        }
-        else
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y, -1);
-        }
-        
-
-        
     }
 
     private void TurnBulletFaceMouse(bool isLeft, SpriteRenderer bulletSprite)

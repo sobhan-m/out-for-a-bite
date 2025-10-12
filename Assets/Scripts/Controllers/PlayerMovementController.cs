@@ -22,12 +22,7 @@ public class PlayerMovementController : MonoBehaviour
         actions = FindObjectOfType<InputActionContainingSystem>().actions;
         moveAction = actions.FindActionMap("Player").FindAction("Move");
     }
-
-    void Update()
-    {
-        TurnToFaceMouse();
-    }
-
+    
     private void TurnToFaceMouse()
     {
         spriteRenderer.flipX = InputService.GetDifferenceFromMouse(transform.position).x <= 0;
@@ -35,6 +30,7 @@ public class PlayerMovementController : MonoBehaviour
 
     void FixedUpdate()
     {
+        TurnToFaceMouse();
         Move();
     }
 

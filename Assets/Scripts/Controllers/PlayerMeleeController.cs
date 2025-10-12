@@ -36,7 +36,7 @@ public class PlayerMeleeController : MonoBehaviour
 
     private void OnAttack(InputAction.CallbackContext context)
     {
-        if (isAttacking) {
+        if (isAttacking || PauseController.isPaused) {
             return;
         }
 
