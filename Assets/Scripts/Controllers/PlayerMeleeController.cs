@@ -9,11 +9,14 @@ public class PlayerMeleeController : MonoBehaviour
     private bool isAttacking = false;
     private InputAction meleeAction;
     private PlayerShootingController shootingController;
+    private Camera cam;
 
     public UnityEvent meleeEvent;
 
     private void Awake()
     {
+        cam = Camera.main;
+        
         meleeAction = FindObjectOfType<InputActionContainingSystem>().actions.FindActionMap("Player").FindAction("Melee");
         meleeAction.performed += OnAttack;
 
@@ -52,8 +55,8 @@ public class PlayerMeleeController : MonoBehaviour
 
     public void Attack()
     {
-        Vector3 attackCentre = InputService.GetDifferenceFromMouse(transform.position).normalized * attackDistance + transform.position;
-        Instantiate(meleeAttackPrefab, attackCentre, Quaternion.Euler(0, 0, InputService.FindDegreeFromMouse(transform.position)));
+        Vector3 attackCentre = InputService.GetDifferenceFromMouse(transform.position, cam).normalized * attackDistance + transform.position;
+        Instantiate(meleeAttackPrefab, attackCentre, Quaternion.Euler(0, 0, InputService.FindDegreeFromMouse(transform.position, cam)));
         isAttacking = false;
         shootingController.enabled = true;
     }

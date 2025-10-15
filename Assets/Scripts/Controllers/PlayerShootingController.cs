@@ -32,7 +32,7 @@ public class PlayerShootingController : MonoBehaviour
     private InputAction reload;
 
     // General
-    private SpriteRenderer spriteRenderer;
+    private Camera cam;
 
     // Unity Events
     public UnityEvent shootEvent;
@@ -43,6 +43,8 @@ public class PlayerShootingController : MonoBehaviour
 
     private void Awake()
     {
+        cam = Camera.main;
+
         actions = FindObjectOfType<InputActionContainingSystem>().actions;
         shootAction = actions.FindActionMap("Player").FindAction("Shoot");
         instaReload = actions.FindActionMap("Player").FindAction("InstaReload");
@@ -56,13 +58,10 @@ public class PlayerShootingController : MonoBehaviour
 
         shootingCooldown = new Meter(0, secondsBetweenShots);
         reloadCooldown = new Meter(0, secondsBeforeReload, secondsBeforeReload);
-
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        // TurnToFaceMouse(IsFacingLeft());
         CooldownShooting();
         CooldownReload();
     }
@@ -193,16 +192,16 @@ public class PlayerShootingController : MonoBehaviour
 
     private bool IsFacingLeft()
     {
-        return InputService.GetDifferenceFromMouse(transform.position).x <= 0;
+        return InputService.GetDifferenceFromMouse(transform.position, cam).x <= 0;
     }
 
     private void CreateBullet()
     {
-        Vector3 diff = InputService.GetDifferenceFromMouse(transform.position);
+        Vector3 diff = InputService.GetDifferenceFromMouse(transform.position, cam);
         float speed = bulletPrefab.GetComponent<Bullet>().speed;
         Vector3 bulletVelocity = diff.normalized * speed;
 
-        GameObject bullet = GameObject.Instantiate(bulletPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, InputService.FindDegreeFromMouse(transform.position)));
+        GameObject bullet = GameObject.Instantiate(bulletPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, InputService.FindDegreeFromMouse(transform.position, cam)));
         TurnBulletFaceMouse(IsFacingLeft(), bullet.GetComponent<SpriteRenderer>());
         bullet.GetComponent<Rigidbody2D>().velocity = bulletVelocity;
     }

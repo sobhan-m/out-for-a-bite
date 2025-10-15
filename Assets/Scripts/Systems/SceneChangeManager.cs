@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class SceneChangeManager : MonoBehaviour
 {
     public static string GAME_OVER_MENU = "Game Over Menu";
+    public static string MAIN_MENU = "Main Menu";
 
     public void LoadScene(string sceneName)
     {
@@ -22,7 +23,12 @@ public class SceneChangeManager : MonoBehaviour
     }
 
     public String GetActiveSceneName()
+    {
+        return SceneManager.GetActiveScene().name;
+    }
+    
+    public void LoadMainMenu()
 	{
-		return SceneManager.GetActiveScene().name;
+		LoadScene(MAIN_MENU);
 	}
 }

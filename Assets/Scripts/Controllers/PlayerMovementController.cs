@@ -11,11 +11,14 @@ public class PlayerMovementController : MonoBehaviour
     private InputActionAsset actions;
     private SpriteRenderer spriteRenderer;
     private bool isWalking = false;
+    private Camera cam;
 
     public UnityEvent<bool> isWalkingEvent;
 
     private void Awake()
     {
+        cam = Camera.main;
+        
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -25,7 +28,7 @@ public class PlayerMovementController : MonoBehaviour
     
     private void TurnToFaceMouse()
     {
-        spriteRenderer.flipX = InputService.GetDifferenceFromMouse(transform.position).x <= 0;
+        spriteRenderer.flipX = InputService.GetDifferenceFromMouse(transform.position, cam).x <= 0;
     }
 
     void FixedUpdate()
