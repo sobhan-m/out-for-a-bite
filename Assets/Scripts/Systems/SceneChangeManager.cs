@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneChangeManager : MonoBehaviour
 {
+    public static string GAME_OVER_MENU = "Game Over Menu";
+
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -17,4 +20,9 @@ public class SceneChangeManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public String GetActiveSceneName()
+	{
+		return SceneManager.GetActiveScene().name;
+	}
 }

@@ -81,4 +81,9 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
     {
         spriteRenderer.color = Color.white;
     }
+
+    public void GoToGameOverMenu()
+	{
+		FindObjectOfType<SceneChangeManager>().LoadScene(SceneChangeManager.GAME_OVER_MENU);
+	}
 }
