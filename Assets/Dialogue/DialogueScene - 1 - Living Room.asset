@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff98337b11c7d1b45bd889be244178c8, type: 3}
+  m_Name: DialogueScene - 1 - Living Room
+  m_EditorClassIdentifier: 
+  dialogues:
+  - {fileID: 11400000, guid: ffc99e474dbe4cb459af43ee9b05e94b, type: 2}
+  - {fileID: 11400000, guid: abb12a6d318bc714fa3ee98e1de59b28, type: 2}
+  - {fileID: 11400000, guid: c2767e8340775f44fb76c3e660627375, type: 2}
+  - {fileID: 11400000, guid: 4e7d3e55234626f41938fe30ca0c6dee, type: 2}
+  - {fileID: 11400000, guid: 7bc9fbd0402d00644aacaadd9b33c7fe, type: 2}
+  - {fileID: 11400000, guid: 9a1312e135215fc468a802bf7a49c61e, type: 2}
+  - {fileID: 11400000, guid: 8288bc2a75dfccf4db5bb161cf9381c2, type: 2}
+  - {fileID: 11400000, guid: e4cba85a9ccd64944a5dcaf93f74bd01, type: 2}
+  - {fileID: 11400000, guid: 0584c776c1e2bc445a143c6707e873be, type: 2}
+  - {fileID: 11400000, guid: 987d473bb82f87742b55ee9d9aff72e2, type: 2}
+  - {fileID: 11400000, guid: 602dd422b2c0a1444a112f87c5bee10c, type: 2}
+  - {fileID: 11400000, guid: 02cd32c3f24acf1448b959ed42d4f6f5, type: 2}
+  - {fileID: 11400000, guid: 7c7f02a638d239b4cb04ff3fc9749bca, type: 2}
+  - {fileID: 11400000, guid: ea01008bb8b64314e9c475f0db981e3f, type: 2}
+  - {fileID: 11400000, guid: cedc6af288dd6bd4d9428324daf68421, type: 2}
+  - {fileID: 11400000, guid: db56cd41a10fc63479f1684144fa4050, type: 2}
+  - {fileID: 11400000, guid: 7fc26d17bcfd03a46b9682d8a6669f48, type: 2}
+  - {fileID: 11400000, guid: 37219982848bd7440a30809b048e5ea4, type: 2}
+  - {fileID: 11400000, guid: dc276a6f5cc9c9f4b94edcda50c48a75, type: 2}
+  - {fileID: 11400000, guid: 8de1b3892d35e984f9b206ac017db32b, type: 2}
+  - {fileID: 11400000, guid: 86d42a7d78db19a4384343049b765c99, type: 2}
+  - {fileID: 11400000, guid: 5d8ffe96210bc1542a4e28517aa2a357, type: 2}

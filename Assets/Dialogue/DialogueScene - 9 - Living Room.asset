@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff98337b11c7d1b45bd889be244178c8, type: 3}
+  m_Name: DialogueScene - 9 - Living Room
+  m_EditorClassIdentifier: 
+  dialogues:
+  - {fileID: 11400000, guid: e8dbad51c79e07844858a15faadd95ad, type: 2}
+  - {fileID: 11400000, guid: ff72294c0d0495a4eacc35bc1d9f71c3, type: 2}
+  - {fileID: 11400000, guid: a1e4cacba6ba27849b28196402aa1789, type: 2}
+  - {fileID: 11400000, guid: a2eda814fa05517429089db049458a92, type: 2}
+  - {fileID: 11400000, guid: 544e8d1c5f6e45d4cb870610d419fb12, type: 2}
+  - {fileID: 11400000, guid: 6c690975246a05540a8e19b49ceecea0, type: 2}
+  - {fileID: 11400000, guid: 8d107c86260b7794cacdd00e48ac68f7, type: 2}
+  - {fileID: 11400000, guid: ce24401ebf1e43745b3abc5c964a0a7d, type: 2}
+  - {fileID: 11400000, guid: 4fc45994f6d170247849fdc7af5db9e9, type: 2}
+  - {fileID: 11400000, guid: ac3f2ed27de5f3b428a04c5a89c93fdc, type: 2}
+  - {fileID: 11400000, guid: 9b821c39afca26a4fb1a68fd9ae4fb18, type: 2}
+  - {fileID: 11400000, guid: edcc983b0da598944863883a1565776d, type: 2}
+  - {fileID: 11400000, guid: 8de9c88f9b22cf641a844a3a149f3197, type: 2}
+  - {fileID: 11400000, guid: 3c3a0f0b4f2aef348a1a18b7174d0498, type: 2}
+  - {fileID: 11400000, guid: fc62c7f5d9fca1e40ac9d39445637d99, type: 2}

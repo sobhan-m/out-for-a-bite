@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff98337b11c7d1b45bd889be244178c8, type: 3}
+  m_Name: DialogueScene - 18 - Dinner Table
+  m_EditorClassIdentifier: 
+  dialogues:
+  - {fileID: 11400000, guid: 554196a62406af043baa65cf168076e6, type: 2}
+  - {fileID: 11400000, guid: 568f26feb516c0a428fabc8c985db3f8, type: 2}
+  - {fileID: 11400000, guid: 8e5c04b4e2c234648b4af69b151d29ff, type: 2}
+  - {fileID: 11400000, guid: b19ef419d11317942885480b542cda2e, type: 2}
+  - {fileID: 11400000, guid: 449c4c6ee6079184fa43f260da3bce2d, type: 2}
+  - {fileID: 11400000, guid: cc707d2d5c2808c43b8fcc1484a7a4a7, type: 2}
+  - {fileID: 11400000, guid: 90860c0e37a9377498a8875e3ac05a99, type: 2}

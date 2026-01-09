@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff98337b11c7d1b45bd889be244178c8, type: 3}
+  m_Name: DialogueScene - 24 - Dinner Table
+  m_EditorClassIdentifier: 
+  dialogues:
+  - {fileID: 11400000, guid: af82cda48bca51d44875240b430b4c1f, type: 2}
+  - {fileID: 11400000, guid: a862fc7574aa7c04d9275485a457570e, type: 2}
+  - {fileID: 11400000, guid: 9c67147975d0ba6469ed00e49b696a98, type: 2}
+  - {fileID: 11400000, guid: 6ec7971c9c0130643a00dbbe02a3abe3, type: 2}
+  - {fileID: 11400000, guid: 48c1b6f380b55e34caf4b18177099ff7, type: 2}
+  - {fileID: 11400000, guid: 6ad18c4c9a373f04c850d6b3ea6f656c, type: 2}
+  - {fileID: 11400000, guid: 7b231dcddd6c3304ab7d5bbda44c3fb0, type: 2}
+  - {fileID: 11400000, guid: 5a75cc1214f5d7145b01e542ccfe532b, type: 2}
+  - {fileID: 11400000, guid: 1efe8a73dd87c3d4db8c92168863c875, type: 2}
+  - {fileID: 11400000, guid: 87819bd8c1977864a86d67a81e973928, type: 2}
+  - {fileID: 11400000, guid: b056979339d138f4d82d1f8bf5870e14, type: 2}
+  - {fileID: 11400000, guid: a2cd170c14f52174196eb3baa1d45cc5, type: 2}
+  - {fileID: 11400000, guid: 1708ff83fbaf76546a06517da9d32a9e, type: 2}
+  - {fileID: 11400000, guid: 4f18b9518e6a22e4fa885e8d7b651e88, type: 2}
+  - {fileID: 11400000, guid: 2361ac39ca9e72f4e9365b1b2abb2049, type: 2}
+  - {fileID: 11400000, guid: 719c66c580cedfd4b87b99c45e70e8f6, type: 2}
+  - {fileID: 11400000, guid: f3a27bc5018e43c468b18e604e703ff3, type: 2}
+  - {fileID: 11400000, guid: 795ae85cbf39aaa41b077a91cd255d75, type: 2}
+  - {fileID: 11400000, guid: 37cb9eac8681673459e9f16586cceb6f, type: 2}
+  - {fileID: 11400000, guid: 936a27cb1690164418406b6e855942c6, type: 2}
+  - {fileID: 11400000, guid: 025c286f796def4449343cbb625f7e1a, type: 2}
+  - {fileID: 11400000, guid: edffef760031a9f4f80318b9544016da, type: 2}
+  - {fileID: 11400000, guid: 168863a472df9d640a4b7288effa202f, type: 2}
+  - {fileID: 11400000, guid: 905937f9ed9fd5645b88b283c0a00bf4, type: 2}
+  - {fileID: 11400000, guid: 0bc2189147da3fd4abeb2d520f4d3836, type: 2}
+  - {fileID: 11400000, guid: 64ba67919e951184e9431e124d8b920d, type: 2}
+  - {fileID: 11400000, guid: 2510207bc20410d4abb9a8070412fa51, type: 2}
+  - {fileID: 11400000, guid: b198bb274ac5c3249853ec2764c49937, type: 2}
+  - {fileID: 11400000, guid: 738f7a1d4e0cc2641a996d49b14fdfa3, type: 2}
