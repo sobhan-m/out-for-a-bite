@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: 1 - Living Room - 4
   m_EditorClassIdentifier: 
   speaker: Nonna
-  dialogueText: Pfft... Work. Work. Work. Always the same excuse from you Bianca
+  dialogueText: Pfft... Work. Work. Work. Always the same excuse from you Bianca.
   sceneGameObject: {fileID: 0}
