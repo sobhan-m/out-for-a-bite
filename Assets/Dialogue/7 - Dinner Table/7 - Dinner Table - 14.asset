@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56b1dbe19b3fda49a29fc012e629f79, type: 3}
   m_Name: 7 - Dinner Table - 14
   m_EditorClassIdentifier: 
-  speaker: Remember one of the first batches I made?
+  speaker: Gino
   dialogueText: It was too salty, but you smiled and said it was great anyway.
   sceneGameObject: {fileID: 0}
