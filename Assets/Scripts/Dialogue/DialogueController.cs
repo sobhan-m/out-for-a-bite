@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class DialogueController : MonoBehaviour
@@ -9,9 +10,8 @@ public class DialogueController : MonoBehaviour
     [SerializeField] TextMeshProUGUI dialogueTextMeshPro;
     [SerializeField] TextMeshProUGUI speakerTextMeshPro;
     [SerializeField] DialogueScene dialogueScene;
-    [SerializeField] GameObject sceneHolder;
     [SerializeField] float secondsBetweenCharacters;
-    private GameObject previousScene;
+    [SerializeField] Image[] characterPositions;
     private bool isPrinting;
     private Coroutine printingProcess;
     private int currentDialogueIndex = 0;
@@ -77,24 +77,31 @@ public class DialogueController : MonoBehaviour
 
     private void UpdateSceneImage()
     {
-        DeleteOldSceneImage();
-        CreateNewSceneImage();
+        Dialogue dialogue = GetCurrentDialogue();
+        UpdateCharacterImage(dialogue.farLeftImage, DialoguePosition.FAR_LEFT, dialogue.mainSpeaker);
+        UpdateCharacterImage(dialogue.centreLeftImage, DialoguePosition.CENTRE_LEFT, dialogue.mainSpeaker);
+        UpdateCharacterImage(dialogue.centreRightImage, DialoguePosition.CENTRE_RIGHT, dialogue.mainSpeaker);
+        UpdateCharacterImage(dialogue.farRightImage, DialoguePosition.FAR_RIGHT, dialogue.mainSpeaker);
     }
 
-    private void CreateNewSceneImage()
+    private void UpdateCharacterImage(Sprite sprite, DialoguePosition positionBeingFilled, DialoguePosition speakerPosition)
     {
-        GameObject dialogueGameObject = GetCurrentDialogue().sceneGameObject;
-        if (dialogueGameObject != null)
+        int positionBeingFilledIndex = (int) positionBeingFilled;
+        if (sprite != null)
         {
-            previousScene = Instantiate(dialogueGameObject, sceneHolder.transform.position, Quaternion.identity, sceneHolder.transform);
+            characterPositions[positionBeingFilledIndex].gameObject.SetActive(true);
+            characterPositions[positionBeingFilledIndex].sprite = sprite;
+            if (speakerPosition == positionBeingFilled)
+            {
+                characterPositions[positionBeingFilledIndex].color = Color.white;
+            } else
+            {
+                characterPositions[positionBeingFilledIndex].color = Color.grey;
+            }
         }
-    }
-
-    private void DeleteOldSceneImage()
-    {
-        if (previousScene != null)
+        else
         {
-            Destroy(previousScene);
+            characterPositions[positionBeingFilledIndex].gameObject.SetActive(false);
         }
     }
 
