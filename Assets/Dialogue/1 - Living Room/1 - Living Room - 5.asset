@@ -15,3 +15,8 @@ MonoBehaviour:
   speaker: Nonna
   dialogueText: When are you going to understand that there's more to life than that.
   sceneGameObject: {fileID: 0}
+  farLeftImage: {fileID: 0}
+  centreLeftImage: {fileID: 21300000, guid: c03999c6ca72a344f8673a59f2db355d, type: 3}
+  centreRightImage: {fileID: 21300000, guid: 2088b9924cc4faa409d6522ab304dfc5, type: 3}
+  farRightImage: {fileID: 0}
+  mainSpeaker: 1
