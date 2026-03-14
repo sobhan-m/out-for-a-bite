@@ -15,4 +15,8 @@ MonoBehaviour:
   speaker: Gino
   dialogueText: Finally put it in the oven for an hour, occasionally ladling the
     chicken juice over it so the meat doesn't get too dry.
-  sceneGameObject: {fileID: 0}
+  farLeftImage: {fileID: 0}
+  centreLeftImage: {fileID: 21300000, guid: 1b634806b0f471f4aa6046e5cdc859b4, type: 3}
+  centreRightImage: {fileID: 0}
+  farRightImage: {fileID: 0}
+  mainSpeaker: 1

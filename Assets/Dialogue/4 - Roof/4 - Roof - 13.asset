@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speaker: Rina
   dialogueText: Really.
-  sceneGameObject: {fileID: 0}
+  farLeftImage: {fileID: 0}
+  centreLeftImage: {fileID: 21300000, guid: 1b634806b0f471f4aa6046e5cdc859b4, type: 3}
+  centreRightImage: {fileID: 21300000, guid: a3fc254b2e374e349865d697c99b49d3, type: 3}
+  farRightImage: {fileID: 0}
+  mainSpeaker: 2
