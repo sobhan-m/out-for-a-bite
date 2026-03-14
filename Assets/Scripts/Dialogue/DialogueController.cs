@@ -86,6 +86,10 @@ public class DialogueController : MonoBehaviour
 
     private void UpdateCharacterImage(Sprite sprite, DialoguePosition positionBeingFilled, DialoguePosition speakerPosition)
     {
+        if (sprite == null)
+        {
+            return;
+        }
         int positionBeingFilledIndex = (int) positionBeingFilled;
         if (sprite != null)
         {
