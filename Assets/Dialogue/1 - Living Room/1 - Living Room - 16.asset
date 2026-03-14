@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speaker: Mamma
   dialogueText: Dio! I'm sorry Gino. You must be so tired.
-  sceneGameObject: {fileID: 0}
   farLeftImage: {fileID: 21300000, guid: 1b634806b0f471f4aa6046e5cdc859b4, type: 3}
-  centreLeftImage: {fileID: 21300000, guid: c03999c6ca72a344f8673a59f2db355d, type: 3}
+  centreLeftImage: {fileID: 21300000, guid: 0f8a3ff35df1279479ba5863bb323847, type: 3}
   centreRightImage: {fileID: 21300000, guid: 2088b9924cc4faa409d6522ab304dfc5, type: 3}
   farRightImage: {fileID: 0}
   mainSpeaker: 2
