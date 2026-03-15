@@ -135,6 +135,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogue Scene Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2999240634492781949, guid: decbfdbec6db9ed4aa1b665f66dd0a79, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -493
+      objectReference: {fileID: 0}
+    - target: {fileID: 2999240634492781949, guid: decbfdbec6db9ed4aa1b665f66dd0a79, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.805
+      objectReference: {fileID: 0}
     - target: {fileID: 5328493083185362371, guid: decbfdbec6db9ed4aa1b665f66dd0a79, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -244,6 +252,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &269874484 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9061264587224595747, guid: decbfdbec6db9ed4aa1b665f66dd0a79, type: 3}
+  m_PrefabInstance: {fileID: 269874481}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &269874485 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3580399432819194174, guid: decbfdbec6db9ed4aa1b665f66dd0a79, type: 3}
+  m_PrefabInstance: {fileID: 269874481}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &269874486 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8420214840919365883, guid: decbfdbec6db9ed4aa1b665f66dd0a79, type: 3}
+  m_PrefabInstance: {fileID: 269874481}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &269874487 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5395897460591610305, guid: decbfdbec6db9ed4aa1b665f66dd0a79, type: 3}
+  m_PrefabInstance: {fileID: 269874481}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &407376417
@@ -513,8 +565,12 @@ MonoBehaviour:
   dialogueTextMeshPro: {fileID: 269874483}
   speakerTextMeshPro: {fileID: 269874482}
   dialogueScene: {fileID: 11400000, guid: 942db6c57a9037540a840e9c1fcad369, type: 2}
-  sceneHolder: {fileID: 0}
   secondsBetweenCharacters: 0.05
+  characterPositions:
+  - {fileID: 269874486}
+  - {fileID: 269874487}
+  - {fileID: 269874485}
+  - {fileID: 269874484}
   typingEffect: {fileID: 8300000, guid: 328b98d2596ce9e48ba1f0f3065b974b, type: 3}
 --- !u!82 &718712816
 AudioSource:
