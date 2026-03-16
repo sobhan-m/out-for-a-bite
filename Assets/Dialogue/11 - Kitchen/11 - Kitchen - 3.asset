@@ -15,4 +15,8 @@ MonoBehaviour:
   speaker: Gino
   dialogueText: After that I'll need to deglaze the rice with some vegetable rice,
     slowly adding the broth one ladle at a time and stirring continuously for a while.
-  sceneGameObject: {fileID: 0}
+  farLeftImage: {fileID: 0}
+  centreLeftImage: {fileID: 21300000, guid: 1b634806b0f471f4aa6046e5cdc859b4, type: 3}
+  centreRightImage: {fileID: 0}
+  farRightImage: {fileID: 0}
+  mainSpeaker: 1
