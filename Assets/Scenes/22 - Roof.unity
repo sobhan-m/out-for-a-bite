@@ -390,8 +390,12 @@ MonoBehaviour:
   dialogueTextMeshPro: {fileID: 1551862332}
   speakerTextMeshPro: {fileID: 1551862331}
   dialogueScene: {fileID: 11400000, guid: 5562dd0e4aae502469b1aa951f470a9f, type: 2}
-  sceneHolder: {fileID: 0}
   secondsBetweenCharacters: 0.05
+  characterPositions:
+  - {fileID: 1551862335}
+  - {fileID: 1551862336}
+  - {fileID: 1551862334}
+  - {fileID: 1551862333}
   typingEffect: {fileID: 8300000, guid: 328b98d2596ce9e48ba1f0f3065b974b, type: 3}
 --- !u!82 &718712816
 AudioSource:
@@ -610,6 +614,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1551862333 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9061264587224595747, guid: decbfdbec6db9ed4aa1b665f66dd0a79, type: 3}
+  m_PrefabInstance: {fileID: 1551862330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1551862334 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3580399432819194174, guid: decbfdbec6db9ed4aa1b665f66dd0a79, type: 3}
+  m_PrefabInstance: {fileID: 1551862330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1551862335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8420214840919365883, guid: decbfdbec6db9ed4aa1b665f66dd0a79, type: 3}
+  m_PrefabInstance: {fileID: 1551862330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1551862336 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5395897460591610305, guid: decbfdbec6db9ed4aa1b665f66dd0a79, type: 3}
+  m_PrefabInstance: {fileID: 1551862330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
