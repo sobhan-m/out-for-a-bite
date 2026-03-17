@@ -15,4 +15,8 @@ MonoBehaviour:
   speaker: Nonna
   dialogueText: I've done my best to teach you how to be a good person and serve
     others, but I could never teach you to take care of yourself.
-  sceneGameObject: {fileID: 0}
+  farLeftImage: {fileID: 0}
+  centreLeftImage: {fileID: 21300000, guid: 1b634806b0f471f4aa6046e5cdc859b4, type: 3}
+  centreRightImage: {fileID: 21300000, guid: 0f8a3ff35df1279479ba5863bb323847, type: 3}
+  farRightImage: {fileID: 0}
+  mainSpeaker: 2
