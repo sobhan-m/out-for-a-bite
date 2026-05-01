@@ -1,26 +1,31 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyMovementManager : MonoBehaviour
 {
     [SerializeField] private float targetRange;
-    [SerializeField] private float speed;
     private EnemyTarget enemyTarget;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private bool isHalted = false;
     private bool isWalking = false;
+    private NavMeshAgent agent;
 
     public UnityEvent<bool> isWalkingEvent;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     void Start()
     {
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+
         enemyTarget = FindClosestEnemyTarget();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -42,12 +47,8 @@ public class EnemyMovementManager : MonoBehaviour
         }
         TrySetIsWalking(true);
 
-        Vector3 vectorToTarget = FindVectorToTarget();
-        AdjustSpriteToFollowEnemy(vectorToTarget.x <= 0);
-
-        Vector2 velocity = vectorToTarget.normalized * speed * Time.fixedDeltaTime;
-
-        rb.MovePosition(rb.position + velocity);
+        AdjustSpriteToFollowEnemy();
+        agent.SetDestination(enemyTarget.transform.position);
     }
 
     private EnemyTarget FindClosestEnemyTarget()
@@ -67,8 +68,9 @@ public class EnemyMovementManager : MonoBehaviour
         return closestEnemyTarget;
     }
 
-    private void AdjustSpriteToFollowEnemy(bool isLeft)
+    private void AdjustSpriteToFollowEnemy()
     {
+        bool isLeft = FindVectorToTarget().x <= 0;
         spriteRenderer.flipX = isLeft;
     }
 
@@ -97,6 +99,7 @@ public class EnemyMovementManager : MonoBehaviour
     public void Halt()
     {
         isHalted = true;
+        agent.ResetPath();
         rb.velocity = Vector3.zero;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
