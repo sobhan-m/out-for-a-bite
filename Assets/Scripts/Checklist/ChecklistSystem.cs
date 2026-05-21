@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class ChecklistSystem : MonoBehaviour
 {
     [SerializeField] private ChecklistItem[] initialChecklist;
+    [Min(0)][SerializeField] public float secondsBetweenCharacters;
     public UnityEvent<string> pickupIngredient;
     public Dictionary<string, bool> checklistItems = new Dictionary<string, bool>();
 

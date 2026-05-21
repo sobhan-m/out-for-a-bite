@@ -2,11 +2,14 @@ using UnityEngine;
 using TMPro;
 using System.Text;
 using System.Collections.Generic;
+using System;
+using System.Collections;
 
 public class ChecklistManager : MonoBehaviour
 {
     private ChecklistSystem checklistSystem;
     private TextMeshProUGUI checklistText;
+    private List<string> ingredientNames = new List<string>();
 	void Awake()
 	{
 		checklistText = GetComponent<TextMeshProUGUI>();
@@ -15,18 +18,18 @@ public class ChecklistManager : MonoBehaviour
 
 	void Start()
 	{
+        RegisterIngredientNames();
 		UpdateTextWithIngredients();
 	}
 
-	public void OnIngredientPickup()
+	public void OnIngredientPickup(string ingredientName)
     {
-        UpdateTextWithIngredients();
+        StartCoroutine(StrikethroughText(ingredientName));
     }
 
-    private void UpdateTextWithIngredients()
+    private void RegisterIngredientNames()
     {
-        StringBuilder outputString = new StringBuilder();
-        Debug.Log("han" + checklistSystem.checklistItems.Count);
+        ingredientNames.Clear();
         foreach (KeyValuePair<string, bool> item in checklistSystem.checklistItems) {
             string itemName = item.Key;
             bool isCheckedOff = item.Value;
@@ -34,8 +37,30 @@ public class ChecklistManager : MonoBehaviour
             {
                 itemName = RichText.strikethrough(itemName);
             }
-            outputString.Append(itemName + "\n");
+            ingredientNames.Add(itemName);
         }
-        checklistText.text = outputString.ToString();
+    }
+
+    private void UpdateTextWithIngredients()
+    {
+        checklistText.text = String.Join("\n", ingredientNames);
+    }
+
+    private IEnumerator StrikethroughText(string ingredientName)
+    {
+        // audioSource.Play();
+        int indexOfIngredientName = this.ingredientNames.FindIndex(ingredientInList => ingredientInList == ingredientName);
+        for (int i = 1; i <= ingredientName.Length; ++i)
+        {
+            string newIngredientName = RichText.strikethrough(ingredientName.Substring(0, i)) + ingredientName.Substring(i);
+            this.ingredientNames[indexOfIngredientName] = newIngredientName;
+            UpdateTextWithIngredients();
+            yield return new WaitForSeconds(checklistSystem.secondsBetweenCharacters);
+        }
+
+        RegisterIngredientNames();
+        UpdateTextWithIngredients();
+
+        // audioSource.Stop();
     }
 }

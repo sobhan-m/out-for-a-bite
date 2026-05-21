@@ -439,13 +439,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialChecklist:
   - {fileID: 11400000, guid: f9c6feeb2d5d5ee4b8f02f885961b3fd, type: 2}
+  secondsBetweenCharacters: 0.05
   pickupIngredient:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1357280394}
         m_TargetAssemblyTypeName: ChecklistManager, Assembly-CSharp
         m_MethodName: OnIngredientPickup
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -453,7 +454,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!1001 &662097328
 PrefabInstance:
   m_ObjectHideFlags: 0
