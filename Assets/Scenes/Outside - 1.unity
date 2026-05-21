@@ -455,6 +455,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  strikethroughSoundEffect: {fileID: 8300000, guid: d4157a9c3a0494a448bd1b7acf8c0053, type: 3}
 --- !u!1001 &662097328
 PrefabInstance:
   m_ObjectHideFlags: 0

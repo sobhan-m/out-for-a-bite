@@ -48,7 +48,7 @@ public class ChecklistManager : MonoBehaviour
 
     private IEnumerator StrikethroughText(string ingredientName)
     {
-        // audioSource.Play();
+        this.checklistSystem.audioSource.Play();
         int indexOfIngredientName = this.ingredientNames.FindIndex(ingredientInList => ingredientInList == ingredientName);
         for (int i = 1; i <= ingredientName.Length; ++i)
         {
@@ -61,6 +61,6 @@ public class ChecklistManager : MonoBehaviour
         RegisterIngredientNames();
         UpdateTextWithIngredients();
 
-        // audioSource.Stop();
+        this.checklistSystem.audioSource.Stop();
     }
 }
