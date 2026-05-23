@@ -25,7 +25,6 @@ public class ChecklistSystem : MonoBehaviour
         }
 	}
 
-
 	public void RegisterPickedUpItem(ChecklistItem itemPickedUp)
     {
         if (checklistItems.ContainsKey(itemPickedUp.name))
@@ -33,5 +32,17 @@ public class ChecklistSystem : MonoBehaviour
             checklistItems[itemPickedUp.name] = true;
             pickupIngredient.Invoke(itemPickedUp.name);
         }
+    }
+
+    public bool IsChecklistComplete()
+    {
+        foreach (bool isIngredientCheckedOff in checklistItems.Values)
+        {
+            if (!isIngredientCheckedOff)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
