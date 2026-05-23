@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 5ad879915fd20c24db1e727282d14fe4
   - enabled: 1
+    path: Assets/Scenes/Outside - 1.unity
+    guid: 4f7f45ccdc27fa64292e8d4f1531442f
+  - enabled: 1
     path: Assets/Scenes/1 - Living Room.unity
     guid: df7acfa86c6dad54d91837f9bef1853e
   - enabled: 1
@@ -20,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/4 - Roof.unity
     guid: 86d002daf2eaf4645a3e39af9af8bda1
+  - enabled: 1
+    path: Assets/Scenes/Outside - 2.unity
+    guid: c9b9e79c6ee593644bf40f9030f0629a
   - enabled: 1
     path: Assets/Scenes/5 - Living Room.unity
     guid: 55145e4acff12b943902f250c1e1d5c9
@@ -33,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/8 - Roof.unity
     guid: 3698c6beeb616a644a59556e1cf077b6
   - enabled: 1
+    path: Assets/Scenes/Outside - 3.unity
+    guid: 8cf3ec21d9daa4145b079f6f1a02b6b8
+  - enabled: 1
     path: Assets/Scenes/9 - Living Room.unity
     guid: 9cd673af7a3245545ac3f91c7d2cc923
   - enabled: 1
@@ -45,17 +54,26 @@ EditorBuildSettings:
     path: Assets/Scenes/12 - Dinner Table.unity
     guid: 781f13acfd57c7d45951f1bba1e35cab
   - enabled: 1
+    path: Assets/Scenes/Outside - 4.unity
+    guid: 150ce67719e5e7540ace57f15be34e54
+  - enabled: 1
     path: Assets/Scenes/13 - Kitchen.unity
     guid: d5a6d3e460e7b0440a0b949510575017
   - enabled: 1
     path: Assets/Scenes/14 - Dinner Table.unity
     guid: 0157b9897e98aba4088fe836a288d992
   - enabled: 1
+    path: Assets/Scenes/Outside - 5.unity
+    guid: 648ef0f28f4622d4d80c5ff7a98d3006
+  - enabled: 1
     path: Assets/Scenes/15 - Kitchen.unity
     guid: e73ac3d44c76a88448353f7f8212d261
   - enabled: 1
     path: Assets/Scenes/16 - Dinner Table.unity
     guid: 1742455ee16b219408721635a1226fe2
+  - enabled: 1
+    path: Assets/Scenes/Outside - 6.unity
+    guid: 62e0190ec1c27e949bc8e19ffba54aec
   - enabled: 1
     path: Assets/Scenes/17 - Kitchen.unity
     guid: 44cd9c2fcda95bc45a3ae2a7aa76cb2c
@@ -69,6 +87,9 @@ EditorBuildSettings:
     path: Assets/Scenes/20 - Living Room.unity
     guid: 160628e7f2bbbc14dba308e5fd430cf4
   - enabled: 1
+    path: Assets/Scenes/Outside - 7.unity
+    guid: 4765edea02b7b7c44849ae5f5689fb71
+  - enabled: 1
     path: Assets/Scenes/21 - Kitchen.unity
     guid: e4bad0d808ec5884db19bd9c078c571a
   - enabled: 1
@@ -81,16 +102,7 @@ EditorBuildSettings:
     path: Assets/Scenes/24 - Dinner Table.unity
     guid: 6c2fd11c44c530f4f9f87822b900aae1
   - enabled: 1
-    path: Assets/Scenes/Fight - 1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/Game Over Menu.unity
     guid: 6f450331a85c6cf4c80e2d8fe509d793
-  - enabled: 1
-    path: Assets/Scenes/Dialogue - Test 1.unity
-    guid: 7cd1532ffd7fa1b42853bf2eec1fe5e7
-  - enabled: 1
-    path: Assets/Scenes/Dialogue - Test 2.unity
-    guid: a425cd868cd860047a540c26df6f44ac
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 305505406098cea45809bad40302f3e2, type: 2}
