@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5243995928313565316}
   - component: {fileID: 1104855908003274424}
   - component: {fileID: 8416471381080512734}
-  - component: {fileID: 7766432124377663488}
   - component: {fileID: 4259407327160694683}
   - component: {fileID: 6807115183282992132}
   - component: {fileID: 7512839727554785905}
@@ -173,21 +172,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &7766432124377663488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3633898812276023957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0410d3c203df184c941e2f399e1e086, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fangPrefab: {fileID: 9218773913940448338, guid: d949aa98655980943ba04d102277e33c, type: 3}
-  fangsToTryToDrop: 4
-  percentageOfFangDrop: 0.5
 --- !u!114 &4259407327160694683
 MonoBehaviour:
   m_ObjectHideFlags: 0
