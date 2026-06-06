@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class PlayerFollowerManager : MonoBehaviour
 {
-    public GameObject player;
 
-    private void LateUpdate()
+    private PlayerMovementController player;
+	void Awake()
+	{
+		player = FindObjectOfType<PlayerMovementController>();
+	}
+
+	private void LateUpdate()
     {
         this.transform.position = player.transform.position + new Vector3(0, 0, -10);
     }
