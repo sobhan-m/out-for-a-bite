@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IKillable
 {
     public void Die();
+    public bool IsDead();
 }

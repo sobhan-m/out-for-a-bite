@@ -10,6 +10,7 @@ public class EnemyAttackManager : MonoBehaviour
     [SerializeField] private float attackDistance;
     private bool isAttacking = false;
     private EnemyMovementManager movementManager;
+    private PlayerHealthManager playerHealthManager;
     private Rigidbody2D rb;
     private Vector3 targetPosition;
     private EnemyTarget player;
@@ -22,12 +23,15 @@ public class EnemyAttackManager : MonoBehaviour
         this.movementManager = GetComponent<EnemyMovementManager>();
         rb = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<EnemyTarget>();
+        playerHealthManager = FindObjectOfType<PlayerHealthManager>();
     }
 
     void Update()
     {
+        bool isPlayerAlive = player.enabled && !playerHealthManager.IsDead();
         Vector2 distanceFromPlayer = player.transform.position - transform.position;
-        if (player.enabled && distanceFromPlayer.magnitude < attackDistance)
+    
+        if  (isPlayerAlive && distanceFromPlayer.magnitude < attackDistance)
         {
             TryAttack();
         }

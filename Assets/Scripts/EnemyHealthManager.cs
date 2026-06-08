@@ -94,4 +94,9 @@ public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
     {
         spriteRenderer.color = Color.white;
     }
+
+    public bool IsDead()
+    {
+        return isDead;
+    }
 }
