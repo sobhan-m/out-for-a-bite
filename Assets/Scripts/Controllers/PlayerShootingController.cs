@@ -11,14 +11,6 @@ public class PlayerShootingController : MonoBehaviour
     [SerializeField] public float secondsBetweenShots;
     private Meter shootingCooldown;
 
-    // Reload
-    [InspectorLabel("Reload")]
-    [SerializeField] public float secondsBeforeReload;
-    [Range(0f, 1f)][SerializeField] public float instaReloadMinPercentage;
-    [Range(0f, 1f)][SerializeField] public float instaReloadMaxPercentage;
-    public Meter reloadCooldown { get; private set; }
-    private bool canInstaReload = true;
-
     // Bullet Count
     [InspectorLabel("Bullet Count")]
     [SerializeField] public int magSize;
@@ -28,7 +20,6 @@ public class PlayerShootingController : MonoBehaviour
     // Input
     private InputActionAsset actions;
     private InputAction shootAction;
-    private InputAction instaReload;
     private InputAction reload;
 
     // General
@@ -47,36 +38,30 @@ public class PlayerShootingController : MonoBehaviour
 
         actions = FindObjectOfType<InputActionContainingSystem>().actions;
         shootAction = actions.FindActionMap("Player").FindAction("Shoot");
-        instaReload = actions.FindActionMap("Player").FindAction("InstaReload");
         reload = actions.FindActionMap("Player").FindAction("Reload");
         shootAction.performed += OnShoot;
-        instaReload.performed += OnInstaReload;
         reload.performed += OnReload;
 
         bulletReserve = FindObjectOfType<BulletReserve>();
         magazine = new GunMagazine(magSize);
 
         shootingCooldown = new Meter(0, secondsBetweenShots);
-        reloadCooldown = new Meter(0, secondsBeforeReload, secondsBeforeReload);
     }
 
     void Update()
     {
         CooldownShooting();
-        CooldownReload();
     }
 
     private void OnEnable()
     {
         shootAction.Enable();
-        instaReload.Enable();
         reload.Enable();
     }
 
     private void OnDisable()
     {
         shootAction.Disable();
-        instaReload.Disable();
         reload.Disable();
     }
 
@@ -108,25 +93,6 @@ public class PlayerShootingController : MonoBehaviour
         magazine.EmptyMagazine();
     }
 
-    private void OnInstaReload(InputAction.CallbackContext context)
-    {
-        if (PauseController.isPaused)
-		{
-            return;
-		}
-
-        if (!canInstaReload || reloadCooldown.IsFull())
-        {
-            return;
-        }
-
-        if (IsInInstaReloadInterval())
-        {
-            Reload();
-        }
-        canInstaReload = false;
-    }
-
     // ====================================
     // PUBLIC METHODS
     // ====================================
@@ -134,13 +100,6 @@ public class PlayerShootingController : MonoBehaviour
     public bool IsReloading()
     {
         return magazine.IsEmpty() && bulletReserve.bulletCount != 0;
-    }
-
-    public bool IsInInstaReloadInterval()
-    {
-        bool isBelowMax = reloadCooldown.currentValue <= reloadCooldown.maxValue * instaReloadMaxPercentage;
-        bool isAboveMin = reloadCooldown.currentValue >= reloadCooldown.maxValue * instaReloadMinPercentage;
-        return isBelowMax && isAboveMin;
     }
 
     // ====================================
@@ -161,28 +120,6 @@ public class PlayerShootingController : MonoBehaviour
     private void CooldownShooting()
     {
         shootingCooldown.EmptyMeter(Time.deltaTime);
-    }
-
-    private void CooldownReload()
-    {
-        if (IsReloading())
-        {
-            reloadCooldown.EmptyMeter(Time.deltaTime);
-            if (reloadCooldown.IsEmpty())
-            {
-                Reload();
-            }
-        }
-    }
-
-    private void Reload()
-    {
-        reloadCooldown.FillMeter();
-
-        int bulletsFetched = bulletReserve.TryGetBullets(magSize);
-        magazine.Reload(bulletsFetched);
-
-        canInstaReload = true;
     }
 
     private void TurnBulletFaceMouse(bool isLeft, SpriteRenderer bulletSprite)
