@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AmmoPickup : MonoBehaviour, IPickupable
 {
-    [SerializeField] private int ammoCount;
+    [SerializeField] private int ammoCount = 1;
     public void PickUp()
     {
         FindObjectOfType<BulletReserve>().bulletCount += ammoCount;
