@@ -6,10 +6,12 @@ public class PlayerMeleeController : MonoBehaviour
 {
     [SerializeField] GameObject meleeAttackPrefab;
     [SerializeField] private float attackDistance;
+    [SerializeField] private float secondsBetweenMelee;
     private bool isAttacking = false;
     private InputAction meleeAction;
     private PlayerShootingController shootingController;
     private Camera cam;
+    private Meter meleeCooldown;
 
     public UnityEvent meleeEvent;
 
@@ -21,9 +23,17 @@ public class PlayerMeleeController : MonoBehaviour
         meleeAction.performed += OnAttack;
 
         shootingController = FindObjectOfType<PlayerShootingController>();
+
+        meleeCooldown = new Meter(0, secondsBetweenMelee);
     }
 
-    private void OnEnable()
+	void Update()
+	{
+		meleeCooldown.EmptyMeter(Time.deltaTime);
+	}
+
+
+	private void OnEnable()
     {
         meleeAction.Enable();
     }
@@ -39,12 +49,13 @@ public class PlayerMeleeController : MonoBehaviour
 
     private void OnAttack(InputAction.CallbackContext context)
     {
-        if (isAttacking || PauseController.isPaused) {
+        if (isAttacking || PauseController.isPaused || !meleeCooldown.IsEmpty()) {
             return;
         }
 
         meleeEvent.Invoke();
 
+        meleeCooldown.FillMeter();
         isAttacking = true;
         shootingController.enabled = false; // TODO: control this via events. This class should be unaware of shooting.
     }
