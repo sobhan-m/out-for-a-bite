@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ffab55dfd5bea47a1cd891e1330b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2.5
   isWalkingEvent:
     m_PersistentCalls:
       m_Calls:
@@ -247,6 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meleeAttackPrefab: {fileID: 6405748592692316461, guid: aece90aa772f5ae4299ea2dc4986b1b6, type: 3}
   attackDistance: 0.75
+  secondsBetweenMelee: 0.75
   meleeEvent:
     m_PersistentCalls:
       m_Calls:
@@ -373,10 +374,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3917901116517410109, guid: 39d4df6705570584ab26c7fd79d6b806, type: 3}
-  secondsBetweenShots: 0.25
-  secondsBeforeReload: 2
-  instaReloadMinPercentage: 0.5
-  instaReloadMaxPercentage: 0.8
+  secondsBetweenShots: 1
+  secondsBeforeReload: 4
+  instaReloadMinPercentage: 0.4
+  instaReloadMaxPercentage: 0.6
   magSize: 10
   shootEvent:
     m_PersistentCalls:
