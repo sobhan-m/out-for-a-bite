@@ -27,7 +27,7 @@ public class EnemyAttackManager : MonoBehaviour
     void Update()
     {
         Vector2 distanceFromPlayer = player.transform.position - transform.position;
-        if (player.enabled && distanceFromPlayer.magnitude <= attackDistance)
+        if (player.enabled && distanceFromPlayer.magnitude < attackDistance)
         {
             TryAttack();
         }
