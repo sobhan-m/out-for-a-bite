@@ -18,6 +18,9 @@ public class EnemyAttackManager : MonoBehaviour
     public UnityEvent startMeleeAttack;
     public UnityEvent endMeleeAttack;
 
+    // Used to get the enemy closer than needed.
+    private const float ATTACK_DISTANCE_MODIFIER = 0.1f;
+
     private void Awake()
     {
         this.movementManager = GetComponent<EnemyMovementManager>();
@@ -30,8 +33,7 @@ public class EnemyAttackManager : MonoBehaviour
     {
         bool isPlayerAlive = player.enabled && !playerHealthManager.IsDead();
         Vector2 distanceFromPlayer = player.transform.position - transform.position;
-    
-        if  (isPlayerAlive && distanceFromPlayer.magnitude < attackDistance)
+        if  (isPlayerAlive && distanceFromPlayer.magnitude < attackDistance - ATTACK_DISTANCE_MODIFIER)
         {
             TryAttack();
         }
