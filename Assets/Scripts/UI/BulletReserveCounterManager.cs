@@ -12,15 +12,15 @@ public class BulletReserveCounterManager : MonoBehaviour
     private void Awake()
     {
         bulletReserve = FindObjectOfType<BulletReserve>();
-        cachedCount = bulletReserve.bulletCount;
+        cachedCount = bulletReserve.garlicCount;
         text.text = cachedCount.ToString();
     }
 
     void Update()
     {
-        if (cachedCount != bulletReserve.bulletCount)
+        if (cachedCount != bulletReserve.garlicCount)
         {
-            cachedCount = bulletReserve.bulletCount;
+            cachedCount = bulletReserve.garlicCount;
             text.text = cachedCount.ToString();
         }
     }

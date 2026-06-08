@@ -11,16 +11,12 @@ public class PlayerShootingController : MonoBehaviour
     [SerializeField] public float secondsBetweenShots;
     private Meter shootingCooldown;
 
-    // Bullet Count
-    [InspectorLabel("Bullet Count")]
-    [SerializeField] public int magSize;
-    public GunMagazine magazine { get; private set; }
+    // Bullets
     private BulletReserve bulletReserve;
 
     // Input
     private InputActionAsset actions;
     private InputAction shootAction;
-    private InputAction reload;
 
     // General
     private Camera cam;
@@ -38,12 +34,9 @@ public class PlayerShootingController : MonoBehaviour
 
         actions = FindObjectOfType<InputActionContainingSystem>().actions;
         shootAction = actions.FindActionMap("Player").FindAction("Shoot");
-        reload = actions.FindActionMap("Player").FindAction("Reload");
         shootAction.performed += OnShoot;
-        reload.performed += OnReload;
 
         bulletReserve = FindObjectOfType<BulletReserve>();
-        magazine = new GunMagazine(magSize);
 
         shootingCooldown = new Meter(0, secondsBetweenShots);
     }
@@ -56,13 +49,11 @@ public class PlayerShootingController : MonoBehaviour
     private void OnEnable()
     {
         shootAction.Enable();
-        reload.Enable();
     }
 
     private void OnDisable()
     {
         shootAction.Disable();
-        reload.Disable();
     }
 
     // ====================================
@@ -76,31 +67,15 @@ public class PlayerShootingController : MonoBehaviour
             return;
 		}
 
-        if (shootingCooldown.IsEmpty() && !magazine.IsEmpty())
+        if (shootingCooldown.IsEmpty() && bulletReserve.HasGarlic())
         {
             Shoot();
         }
     }
 
-    private void OnReload(InputAction.CallbackContext context)
-    {
-        if (PauseController.isPaused)
-		{
-            return;
-		}
-
-
-        magazine.EmptyMagazine();
-    }
-
     // ====================================
     // PUBLIC METHODS
     // ====================================
-
-    public bool IsReloading()
-    {
-        return magazine.IsEmpty() && bulletReserve.bulletCount != 0;
-    }
 
     // ====================================
     // PRIVATE METHODS
@@ -110,7 +85,7 @@ public class PlayerShootingController : MonoBehaviour
     {
         shootEvent.Invoke();
 
-        magazine.EmptyShot();
+        bulletReserve.UseGarlic();
 
         CreateBullet();
 

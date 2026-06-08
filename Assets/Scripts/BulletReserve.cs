@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class BulletReserve : MonoBehaviour
 {
-    [SerializeField] public int bulletCount = 12;
+    [SerializeField] public int garlicCount = 12;
 
-    public bool CanBlock()
+    public bool HasGarlic()
     {
-        return bulletCount > 0;
+        return garlicCount > 0;
     }
 
-    public void Block()
+    public void UseGarlic()
     {
-        --bulletCount;
+        --garlicCount;
     }
 
     public int TryGetBullets(int bulletCount)
     {
-        int bulletsRetrieved = Mathf.Min(bulletCount, this.bulletCount);
-        this.bulletCount -= bulletsRetrieved;
+        int bulletsRetrieved = Mathf.Min(bulletCount, this.garlicCount);
+        this.garlicCount -= bulletsRetrieved;
         return bulletsRetrieved;
     }
 }

@@ -41,9 +41,9 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
     public void TakeDamage(float damage)
     {
         // Use bullet as shield.
-        if (bulletReserve.CanBlock())
+        if (bulletReserve.HasGarlic())
         {
-            bulletReserve.Block();
+            bulletReserve.UseGarlic();
             AddDamageTakenIndication();
             return;
         }
