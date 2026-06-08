@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTakenIndicationDuration: 0.25
-  maxHealth: 50
+  maxHealth: 100
   deathEvent:
     m_PersistentCalls:
       m_Calls:

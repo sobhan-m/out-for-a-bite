@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442c971b9a99b8b41a56e7132b20e737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 25
+  damageAmount: 30
   secondsBeforeDespawning: 0.1
   shouldTargetPlayer: 0
   shouldTargetEnemies: 1
