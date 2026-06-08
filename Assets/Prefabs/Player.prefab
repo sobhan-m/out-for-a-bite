@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1335113651566803461}
   - component: {fileID: 6071126022882432193}
   - component: {fileID: 7851064322961738164}
-  - component: {fileID: 4059200610542161753}
   - component: {fileID: 7212437367841466710}
   - component: {fileID: 4277926823012200242}
   - component: {fileID: 7873148744619767030}
@@ -208,19 +207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb687cbf577f2a4fa4ff83cba48bc13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4059200610542161753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4865225061628360338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4fbbd41361a52b41b5599dbc4752602, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletCount: 12
 --- !u!114 &7212437367841466710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,10 +361,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3917901116517410109, guid: 39d4df6705570584ab26c7fd79d6b806, type: 3}
   secondsBetweenShots: 1
-  secondsBeforeReload: 4
-  instaReloadMinPercentage: 0.4
-  instaReloadMaxPercentage: 0.6
-  magSize: 10
   shootEvent:
     m_PersistentCalls:
       m_Calls:
