@@ -12,7 +12,7 @@ public class PlayerShootingController : MonoBehaviour
     private Meter shootingCooldown;
 
     // Bullets
-    private BulletReserve bulletReserve;
+    private GarlicReserve garlicReserve;
 
     // Input
     private InputActionAsset actions;
@@ -36,7 +36,7 @@ public class PlayerShootingController : MonoBehaviour
         shootAction = actions.FindActionMap("Player").FindAction("Shoot");
         shootAction.performed += OnShoot;
 
-        bulletReserve = FindObjectOfType<BulletReserve>();
+        garlicReserve = FindObjectOfType<GarlicReserve>();
 
         shootingCooldown = new Meter(0, secondsBetweenShots);
     }
@@ -67,7 +67,7 @@ public class PlayerShootingController : MonoBehaviour
             return;
 		}
 
-        if (shootingCooldown.IsEmpty() && bulletReserve.HasGarlic())
+        if (shootingCooldown.IsEmpty() && garlicReserve.HasGarlic())
         {
             Shoot();
         }
@@ -85,7 +85,7 @@ public class PlayerShootingController : MonoBehaviour
     {
         shootEvent.Invoke();
 
-        bulletReserve.UseGarlic();
+        garlicReserve.UseGarlic();
 
         CreateBullet();
 

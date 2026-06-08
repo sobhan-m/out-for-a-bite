@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3741471942677233957}
   - component: {fileID: 5454183557527308566}
   m_Layer: 0
-  m_Name: Ammo Pickup
+  m_Name: Garlic Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

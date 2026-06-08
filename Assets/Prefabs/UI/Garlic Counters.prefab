@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7743343449863830825}
   m_Layer: 5
-  m_Name: Bullet Counters
+  m_Name: Garlic Counters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

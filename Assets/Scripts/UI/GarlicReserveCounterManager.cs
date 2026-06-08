@@ -7,20 +7,20 @@ public class BulletReserveCounterManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
     private int cachedCount;
-    private BulletReserve bulletReserve;
+    private GarlicReserve garlicReserve;
 
     private void Awake()
     {
-        bulletReserve = FindObjectOfType<BulletReserve>();
-        cachedCount = bulletReserve.garlicCount;
+        garlicReserve = FindObjectOfType<GarlicReserve>();
+        cachedCount = garlicReserve.garlicCount;
         text.text = cachedCount.ToString();
     }
 
     void Update()
     {
-        if (cachedCount != bulletReserve.garlicCount)
+        if (cachedCount != garlicReserve.garlicCount)
         {
-            cachedCount = bulletReserve.garlicCount;
+            cachedCount = garlicReserve.garlicCount;
             text.text = cachedCount.ToString();
         }
     }

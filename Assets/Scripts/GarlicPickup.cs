@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GarlicPickup : MonoBehaviour, IPickupable
+public class AmmoPickup : MonoBehaviour, IPickupable
 {
     [SerializeField] private int ammoCount = 1;
     public void PickUp()
