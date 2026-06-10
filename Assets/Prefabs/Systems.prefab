@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3679973045003793619}
   - component: {fileID: 9195836893506824465}
   - component: {fileID: 8133255031477593255}
+  - component: {fileID: 7489977032732949249}
   m_Layer: 0
   m_Name: Systems
   m_TagString: Untagged
@@ -259,3 +260,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveSceneOnLoad: 1
+--- !u!114 &7489977032732949249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7968820149422415330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861d137c3a57a0346b0facad05ed1976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGarlicLoverMode: 0
