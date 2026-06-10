@@ -717,6 +717,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Systems
       objectReference: {fileID: 0}
+    - target: {fileID: 8133255031477593255, guid: f4c14b3940bdd534f8c26540e3b4076d, type: 3}
+      propertyPath: saveSceneOnLoad
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
