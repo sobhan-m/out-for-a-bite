@@ -7,5 +7,9 @@ public class SettingSystem : MonoBehaviour
     public const int GARLIC_LOVER_MODE_COUNT = 100;
 
     [SerializeField]
-    public bool isGarlicLoverMode = false;
+    public static bool isGarlicLoverMode = false;
+    public void SetGarlicLoverMode(bool isGarlicLoverMode)
+    {
+        SettingSystem.isGarlicLoverMode = isGarlicLoverMode;
+    }
 }

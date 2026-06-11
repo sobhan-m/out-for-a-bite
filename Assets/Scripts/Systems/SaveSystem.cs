@@ -7,7 +7,6 @@ public class SaveSystem : MonoBehaviour
     [SerializeField]
     private bool saveSceneOnLoad = true;
     private SceneChangeManager sceneChangeManager;
-    private SettingSystem settingSystem;
 
 	void Awake()
 	{
@@ -21,12 +20,12 @@ public class SaveSystem : MonoBehaviour
 	public void SaveScene()
     {
         string sceneName = sceneChangeManager.GetActiveSceneName();
-        PlayerPrefs.SetString(Save.SCENE_NAME, sceneName);
+        PlayerPrefs.SetString(SCENE_NAME, sceneName);
     }
 
     public string GetScene()
     {
-        Debug.Log("sceneName = " + PlayerPrefs.GetString(Save.SCENE_NAME));
+        Debug.Log("sceneName = " + PlayerPrefs.GetString(SCENE_NAME));
         return PlayerPrefs.GetString(SCENE_NAME);
     }
 
@@ -43,11 +42,13 @@ public class SaveSystem : MonoBehaviour
 
     public void SaveGarlicLoverMode()
     {
-        PlayerPrefs.SetInt(Save.IS_GARLIC_LOVER_MODE, settingSystem.isGarlicLoverMode ? 1 : 0);
+        Debug.Log("garlicLoverModeSave = " + SettingSystem.isGarlicLoverMode);
+        PlayerPrefs.SetInt(IS_GARLIC_LOVER_MODE, SettingSystem.isGarlicLoverMode ? 1 : 0);
     }
 
     public bool GetGarlicLoverMode()
     {
-        return PlayerPrefs.GetInt(Save.IS_GARLIC_LOVER_MODE) > 0;
+        Debug.Log("garlicLoverModeGet = " + PlayerPrefs.GetInt(IS_GARLIC_LOVER_MODE));
+        return PlayerPrefs.GetInt(IS_GARLIC_LOVER_MODE) > 0;
     }
 }

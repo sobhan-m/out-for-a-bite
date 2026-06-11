@@ -9,7 +9,7 @@ public class GarlicReserve : MonoBehaviour
 	void Start()
 	{
         SettingSystem settingSystem = FindObjectOfType<SettingSystem>();
-		if (settingSystem != null && settingSystem.isGarlicLoverMode)
+		if (settingSystem != null && SettingSystem.isGarlicLoverMode)
         {
             garlicCount = SettingSystem.GARLIC_LOVER_MODE_COUNT;
         }
