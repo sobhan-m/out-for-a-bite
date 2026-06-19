@@ -6,15 +6,18 @@ public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
 {
     [SerializeField] private float damageTakenIndicationDuration;
     [SerializeField][Min(0)] public float maxHealth;
+    [SerializeField] private AudioClip takingDamageSoundClip;
     private Meter health;
     private SpriteRenderer spriteRenderer;
     private bool isDead = false;
+    private Camera cam;
 
     [SerializeField] private UnityEvent deathEvent;
 
 
     void Awake()
     {
+        cam = Camera.main;
         health = new Meter(0, maxHealth, maxHealth);
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -88,6 +91,7 @@ public class EnemyHealthManager : MonoBehaviour, IDamageable, IKillable
     {
         spriteRenderer.color = Color.black;
         Invoke("RemoveDamageTakenIndication", damageTakenIndicationDuration);
+        AudioSource.PlayClipAtPoint(takingDamageSoundClip, cam.transform.position);
     }
 
     private void RemoveDamageTakenIndication()
