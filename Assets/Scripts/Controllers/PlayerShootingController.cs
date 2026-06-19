@@ -9,6 +9,7 @@ public class PlayerShootingController : MonoBehaviour
     [InspectorLabel("Shooting")]
     [SerializeField] public GameObject bulletPrefab;
     [SerializeField] public float secondsBetweenShots;
+    [SerializeField] private AudioClip shotSoundClip;
     private Meter shootingCooldown;
 
     // Bullets
@@ -88,6 +89,7 @@ public class PlayerShootingController : MonoBehaviour
         garlicReserve.UseGarlic();
 
         CreateBullet();
+        AudioSource.PlayClipAtPoint(shotSoundClip, cam.transform.position);
 
         shootingCooldown.FillMeter();
     }

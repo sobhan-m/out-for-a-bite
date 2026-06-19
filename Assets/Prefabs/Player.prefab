@@ -361,6 +361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3917901116517410109, guid: 39d4df6705570584ab26c7fd79d6b806, type: 3}
   secondsBetweenShots: 1
+  shotSoundClip: {fileID: 8300000, guid: 67916d6de83c17a4494313849734fc5c, type: 3}
   shootEvent:
     m_PersistentCalls:
       m_Calls:
