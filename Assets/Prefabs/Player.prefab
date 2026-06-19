@@ -389,6 +389,7 @@ MonoBehaviour:
   meleeAttackPrefab: {fileID: 6405748592692316461, guid: aece90aa772f5ae4299ea2dc4986b1b6, type: 3}
   attackDistance: 0.75
   secondsBetweenMelee: 0.75
+  meleeAttackSoundClip: {fileID: 8300000, guid: faabbde08d65547488b9792b7d39ecae, type: 3}
   meleeEvent:
     m_PersistentCalls:
       m_Calls:

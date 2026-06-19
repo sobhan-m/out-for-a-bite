@@ -7,6 +7,7 @@ public class PlayerMeleeController : MonoBehaviour
     [SerializeField] GameObject meleeAttackPrefab;
     [SerializeField] private float attackDistance;
     [SerializeField] private float secondsBetweenMelee;
+    [SerializeField] private AudioClip meleeAttackSoundClip;
     private bool isAttacking = false;
     private InputAction meleeAction;
     private PlayerShootingController shootingController;
@@ -54,6 +55,7 @@ public class PlayerMeleeController : MonoBehaviour
         }
 
         meleeEvent.Invoke();
+        AudioSource.PlayClipAtPoint(meleeAttackSoundClip, cam.transform.position);
 
         meleeCooldown.FillMeter();
         isAttacking = true;
