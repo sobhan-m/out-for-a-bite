@@ -419,6 +419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageTakenIndicationDuration: 0.25
   maxHealth: 100
+  damageSoundClip: {fileID: 8300000, guid: 6b82e3f901b886645ab9e7a837200802, type: 3}
   deathEvent:
     m_PersistentCalls:
       m_Calls:
