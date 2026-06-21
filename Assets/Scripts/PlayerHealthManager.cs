@@ -7,15 +7,18 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
 {
     [SerializeField] private float damageTakenIndicationDuration;
     [SerializeField][Min(0)] private float maxHealth;
+    [SerializeField] private AudioClip damageSoundClip;
     private Meter health;
     private SpriteRenderer spriteRenderer;
     private bool isDead = false;
     private GarlicReserve garlicReserve;
+    private Camera cam;
 
     public UnityEvent deathEvent;
 
     void Awake()
     {
+        cam = Camera.main;
         health = new Meter(0, maxHealth, maxHealth);
         spriteRenderer = GetComponent<SpriteRenderer>();
         garlicReserve = FindObjectOfType<GarlicReserve>();
@@ -85,6 +88,7 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
     {
         spriteRenderer.color = Color.black;
         Invoke("RemoveDamageTakenIndication", damageTakenIndicationDuration);
+        AudioSource.PlayClipAtPoint(damageSoundClip, cam.transform.position);
     }
 
     private void RemoveDamageTakenIndication()
