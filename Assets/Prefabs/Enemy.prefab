@@ -261,6 +261,7 @@ MonoBehaviour:
   meleeAttack: {fileID: 6405748592692316461, guid: f3b7670489489d4428bc7725afcba2b7, type: 3}
   damageAmount: 20
   attackDistance: 1.3
+  attackSoundClip: {fileID: 8300000, guid: ebd8948aeed400e4aaa3e1cfe28b2874, type: 3}
   startMeleeAttack:
     m_PersistentCalls:
       m_Calls:

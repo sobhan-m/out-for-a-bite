@@ -8,12 +8,14 @@ public class EnemyAttackManager : MonoBehaviour
     [SerializeField] private GameObject meleeAttack;
     [SerializeField] private float damageAmount;
     [SerializeField] private float attackDistance;
+    [SerializeField] private AudioClip attackSoundClip;
     private bool isAttacking = false;
     private EnemyMovementManager movementManager;
     private PlayerHealthManager playerHealthManager;
     private Rigidbody2D rb;
     private Vector3 targetPosition;
     private EnemyTarget player;
+    private Camera cam;
 
     public UnityEvent startMeleeAttack;
     public UnityEvent endMeleeAttack;
@@ -23,6 +25,7 @@ public class EnemyAttackManager : MonoBehaviour
 
     private void Awake()
     {
+        cam = Camera.main;
         this.movementManager = GetComponent<EnemyMovementManager>();
         rb = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<EnemyTarget>();
@@ -72,6 +75,7 @@ public class EnemyAttackManager : MonoBehaviour
         Vector3 vectorToAttack = attackCentre - transform.position;
         float angleDegrees = Mathf.Atan2(vectorToAttack.y, vectorToAttack.x) * Mathf.Rad2Deg;
 
+        AudioSource.PlayClipAtPoint(attackSoundClip, cam.transform.position);
         Instantiate(meleeAttack, attackCentre, Quaternion.Euler(0, 0, angleDegrees));
 
         EndAttack();
