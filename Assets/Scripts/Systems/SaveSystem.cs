@@ -19,7 +19,7 @@ public class SaveSystem : MonoBehaviour
 
 	public void SaveScene()
     {
-        string sceneName = sceneChangeManager.GetActiveSceneName();
+        string sceneName = SceneChangeManager.GetActiveSceneName();
         PlayerPrefs.SetString(SCENE_NAME, sceneName);
     }
 

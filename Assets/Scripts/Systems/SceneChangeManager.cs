@@ -22,7 +22,7 @@ public class SceneChangeManager : MonoBehaviour
         Application.Quit();
     }
 
-    public String GetActiveSceneName()
+    public static String GetActiveSceneName()
     {
         return SceneManager.GetActiveScene().name;
     }
@@ -31,4 +31,9 @@ public class SceneChangeManager : MonoBehaviour
 	{
 		LoadScene(MAIN_MENU);
 	}
+
+    public static bool IsCombatScene()
+    {
+        return GetActiveSceneName().Contains("Outside");
+    }
 }
