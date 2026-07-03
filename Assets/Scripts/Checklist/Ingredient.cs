@@ -4,12 +4,12 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider2D))]
 public class Ingredient : MonoBehaviour, IPickupable
 {
-    [SerializeField] private ChecklistItem item;
-    private ChecklistSystem checklistSystem;
+    [SerializeField] public ChecklistItem item;
+    private AbstractChecklistSystem checklistSystem;
 
 	void Awake()
 	{
-		checklistSystem = FindObjectOfType<ChecklistSystem>();
+		checklistSystem = FindObjectOfType<AbstractChecklistSystem>();
 	}
 
 	public void PickUp()

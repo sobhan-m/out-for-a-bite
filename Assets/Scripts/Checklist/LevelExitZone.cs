@@ -12,7 +12,7 @@ public class LevelExitZone : MonoBehaviour
             return;
         }
 
-        ChecklistSystem checklistSystem = FindObjectOfType<ChecklistSystem>();
+        AbstractChecklistSystem checklistSystem = FindObjectOfType<AbstractChecklistSystem>();
         if (checklistSystem.IsChecklistComplete())
         {
             SceneChangeManager sceneChangeManager = FindObjectOfType<SceneChangeManager>();

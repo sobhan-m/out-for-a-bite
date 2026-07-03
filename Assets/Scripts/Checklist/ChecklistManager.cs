@@ -7,13 +7,13 @@ using System.Collections;
 
 public class ChecklistManager : MonoBehaviour
 {
-    private ChecklistSystem checklistSystem;
+    private AbstractChecklistSystem checklistSystem;
     private TextMeshProUGUI checklistText;
     private List<string> ingredientNames = new List<string>();
 	void Awake()
 	{
 		checklistText = GetComponent<TextMeshProUGUI>();
-        checklistSystem = FindObjectOfType<ChecklistSystem>();
+        checklistSystem = FindObjectOfType<AbstractChecklistSystem>();
 	}
 
 	void Start()
