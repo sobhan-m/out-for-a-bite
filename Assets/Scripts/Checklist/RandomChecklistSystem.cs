@@ -27,12 +27,4 @@ public class RandomChecklistSystem : AbstractChecklistSystem
             checklistItems.Add(item.name, item.isCheckedOff);
         }
 	}
-
-	private class RandomSorter : Comparer<Object>
-	{
-		public override int Compare(Object x, Object y)
-		{
-			return Random.Range(-1, 2);
-		}
-	}
 }
