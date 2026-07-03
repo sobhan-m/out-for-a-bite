@@ -362,20 +362,24 @@ PrefabInstance:
       value: Infinite Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 7175575422334490364, guid: b4cef2861bfe59e4bac2740e7078473d, type: 3}
+      propertyPath: minimumDistanceFromPlayer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175575422334490364, guid: b4cef2861bfe59e4bac2740e7078473d, type: 3}
       propertyPath: maximumSecondsBetweenSpawnAfterAllIngredients
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7175575422334490364, guid: b4cef2861bfe59e4bac2740e7078473d, type: 3}
       propertyPath: minimumSecondsBetweenSpawnAfterAllIngredients
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7175575422334490364, guid: b4cef2861bfe59e4bac2740e7078473d, type: 3}
       propertyPath: maximumSecondsBetweenSpawnBeforeAllIngredients
-      value: 20
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7175575422334490364, guid: b4cef2861bfe59e4bac2740e7078473d, type: 3}
       propertyPath: minimumSecondsBetweenSpawnBeforeAllIngredients
-      value: 15
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
