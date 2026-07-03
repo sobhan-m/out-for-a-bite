@@ -5,6 +5,21 @@ using UnityEngine;
 public class GarlicReserve : MonoBehaviour
 {
     [SerializeField] public int garlicCount = 3;
+    [SerializeField] 
+    private bool isEndlessMode = false;
+
+	void Awake()
+	{
+		if (isEndlessMode)
+        {
+            DontDestroyOnLoad(this.gameObject);
+            GarlicReserve[] garlicReserves = FindObjectsByType<GarlicReserve>(FindObjectsSortMode.None);
+            if (garlicReserves.Length > 1)
+            {
+                Destroy(this);
+            }
+        }
+	}
 
 	void Start()
 	{
