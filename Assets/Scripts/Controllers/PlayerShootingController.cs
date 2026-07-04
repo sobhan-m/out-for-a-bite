@@ -35,7 +35,6 @@ public class PlayerShootingController : MonoBehaviour
 
         actions = FindObjectOfType<InputActionContainingSystem>().actions;
         shootAction = actions.FindActionMap("Player").FindAction("Shoot");
-        shootAction.performed += OnShoot;
 
         garlicReserve = FindObjectOfType<GarlicReserve>();
 
@@ -49,11 +48,13 @@ public class PlayerShootingController : MonoBehaviour
 
     private void OnEnable()
     {
+        shootAction.performed += OnShoot;
         shootAction.Enable();
     }
 
     private void OnDisable()
     {
+        shootAction.performed -= OnShoot;
         shootAction.Disable();
     }
 

@@ -21,7 +21,6 @@ public class PlayerMeleeController : MonoBehaviour
         cam = Camera.main;
         
         meleeAction = FindObjectOfType<InputActionContainingSystem>().actions.FindActionMap("Player").FindAction("Melee");
-        meleeAction.performed += OnAttack;
 
         shootingController = FindObjectOfType<PlayerShootingController>();
 
@@ -36,11 +35,13 @@ public class PlayerMeleeController : MonoBehaviour
 
 	private void OnEnable()
     {
+        meleeAction.performed += OnAttack;
         meleeAction.Enable();
     }
 
     private void OnDisable()
     {
+        meleeAction.performed -= OnAttack;
         meleeAction.Disable();
     }
 
