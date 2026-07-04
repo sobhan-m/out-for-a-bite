@@ -17,7 +17,7 @@ public class RandomChecklistSystem : AbstractChecklistSystem
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = strikethroughSoundEffect;
 
-        int numOfIngredientsToSpawn = Random.Range(1, MAX_INGREDIENTS + 1);
+        int numOfIngredientsToSpawn = Random.Range(1, MAX_INGREDIENTS);
         if (spawnLocations.Count > 1)
         {
             spawnLocations.Sort(new RandomSorter()); // Randomize locations used.
