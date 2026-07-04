@@ -48,6 +48,11 @@ public class SceneChangeManager : MonoBehaviour
             i = UnityEngine.Random.Range(MIN_ENDLESS_MAP, MAX_ENDLESS_MAP + 1);
             sceneToLoad = "Outside - Endless - " + i; 
         }
+        EndlessScoreTracker endlessScoreTracker = FindObjectOfType<EndlessScoreTracker>();
+        if (endlessScoreTracker != null)
+        {
+            endlessScoreTracker.IncreaseLevelsCompleted();
+        }
         LoadScene(sceneToLoad);
     }
 }
