@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class LevelExitZone : MonoBehaviour
 {
+    [SerializeField]
+    private bool isEndlessMode = false;
+
 	void OnTriggerEnter2D(Collider2D collision)
 	{
         if (!collision.gameObject.TryGetComponent<PlayerHealthManager>(out PlayerHealthManager player))
@@ -15,8 +18,14 @@ public class LevelExitZone : MonoBehaviour
         AbstractChecklistSystem checklistSystem = FindObjectOfType<AbstractChecklistSystem>();
         if (checklistSystem.IsChecklistComplete())
         {
-            SceneChangeManager sceneChangeManager = FindObjectOfType<SceneChangeManager>();
-            sceneChangeManager.LoadNextScene();
+            if (isEndlessMode)
+            {
+                SceneChangeManager.LoadRandomEndlessModeScene();
+            } else
+            {
+                SceneChangeManager sceneChangeManager = FindObjectOfType<SceneChangeManager>();
+                sceneChangeManager.LoadNextScene();
+            }
         }
 	}
 }

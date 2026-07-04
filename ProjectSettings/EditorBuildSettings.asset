@@ -104,5 +104,26 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game Over Menu.unity
     guid: 6f450331a85c6cf4c80e2d8fe509d793
+  - enabled: 1
+    path: Assets/Scenes/Outside - Endless - 1.unity
+    guid: 89607648f057f564eadcb4990f0ef860
+  - enabled: 1
+    path: Assets/Scenes/Outside - Endless - 2.unity
+    guid: 6683ff3763ff3144eaee8cf935557688
+  - enabled: 1
+    path: Assets/Scenes/Outside - Endless - 3.unity
+    guid: 25d1f1b1f03ea774797110cdc8d4180b
+  - enabled: 1
+    path: Assets/Scenes/Outside - Endless - 4.unity
+    guid: 969036279caa47148ae0db3fec916181
+  - enabled: 1
+    path: Assets/Scenes/Outside - Endless - 5.unity
+    guid: cf0742a8b15ee454086728e575710812
+  - enabled: 1
+    path: Assets/Scenes/Outside - Endless - 6.unity
+    guid: 87035b42ea4e8fa49a284deddfaa2a03
+  - enabled: 1
+    path: Assets/Scenes/Outside - Endless - 7.unity
+    guid: 003da07e70bc9ab40aa12d557342d3c1
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 305505406098cea45809bad40302f3e2, type: 2}

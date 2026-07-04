@@ -18,8 +18,14 @@ public class RandomChecklistSystem : AbstractChecklistSystem
         audioSource.clip = strikethroughSoundEffect;
 
         int numOfIngredientsToSpawn = Random.Range(1, MAX_INGREDIENTS + 1);
-        spawnLocations.Sort(new RandomSorter()); // Randomize locations used.
-        ingredients.Sort(new RandomSorter()); // Randomize ingredients used.
+        if (spawnLocations.Count > 1)
+        {
+            spawnLocations.Sort(new RandomSorter()); // Randomize locations used.
+        }
+        if (ingredients.Count > 1)
+        {
+            ingredients.Sort(new RandomSorter()); // Randomize ingredients used.
+        }
         for (int i = 0; i < numOfIngredientsToSpawn; ++i)
         {
             GameObject.Instantiate(ingredients[i], spawnLocations[i].position, Quaternion.identity);

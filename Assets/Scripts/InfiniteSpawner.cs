@@ -28,13 +28,13 @@ public class InfiniteSpawner : MonoBehaviour
     private float maximumSecondsBetweenSpawnAfterAllIngredients;
 
     private PlayerMovementController player;
-    private ChecklistSystem checklistSystem;
-    private Meter spawnCooldown;
+    private AbstractChecklistSystem checklistSystem;
+    private Meter spawnCooldown = new Meter(0, 9999, 9999);
 
 	void Awake()
 	{
 		player = FindObjectOfType<PlayerMovementController>();
-		checklistSystem = FindObjectOfType<ChecklistSystem>();
+		checklistSystem = FindObjectOfType<AbstractChecklistSystem>();
 	}
 
 	void Start()

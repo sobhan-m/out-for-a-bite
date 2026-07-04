@@ -98,7 +98,7 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
 
     public void GoToGameOverMenu()
 	{
-		FindObjectOfType<SceneChangeManager>().LoadScene(SceneChangeManager.GAME_OVER_MENU);
+		SceneChangeManager.LoadScene(SceneChangeManager.GAME_OVER_MENU);
 	}
 
     public bool IsDead()

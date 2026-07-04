@@ -374,6 +374,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1006771283}
     m_Modifications:
+    - target: {fileID: 431337782586441193, guid: 1df7f2e29d88d14438b18589e29f9430, type: 3}
+      propertyPath: isEndlessMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1474158744535884607, guid: 1df7f2e29d88d14438b18589e29f9430, type: 3}
       propertyPath: m_Name
       value: Exit Level Zone
@@ -680,19 +684,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7175575422334490364, guid: b4cef2861bfe59e4bac2740e7078473d, type: 3}
       propertyPath: maximumSecondsBetweenSpawnAfterAllIngredients
-      value: 7
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7175575422334490364, guid: b4cef2861bfe59e4bac2740e7078473d, type: 3}
       propertyPath: minimumSecondsBetweenSpawnAfterAllIngredients
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7175575422334490364, guid: b4cef2861bfe59e4bac2740e7078473d, type: 3}
       propertyPath: maximumSecondsBetweenSpawnBeforeAllIngredients
-      value: 12
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7175575422334490364, guid: b4cef2861bfe59e4bac2740e7078473d, type: 3}
       propertyPath: minimumSecondsBetweenSpawnBeforeAllIngredients
-      value: 8
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -911,7 +915,6 @@ GameObject:
   m_Component:
   - component: {fileID: 405243020}
   - component: {fileID: 405243022}
-  - component: {fileID: 405243023}
   m_Layer: 0
   m_Name: UI Managers
   m_TagString: Untagged
@@ -947,18 +950,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1111387617}
---- !u!114 &405243023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 405243019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 502917943d9022d448c46212b293ffe5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &416898657
 GameObject:
   m_ObjectHideFlags: 0
@@ -14516,6 +14507,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1006771283}
     m_Modifications:
+    - target: {fileID: 431337782586441193, guid: 1df7f2e29d88d14438b18589e29f9430, type: 3}
+      propertyPath: isEndlessMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1474158744535884607, guid: 1df7f2e29d88d14438b18589e29f9430, type: 3}
       propertyPath: m_Name
       value: Exit Level Zone (2)
@@ -14646,6 +14641,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1006771283}
     m_Modifications:
+    - target: {fileID: 431337782586441193, guid: 1df7f2e29d88d14438b18589e29f9430, type: 3}
+      propertyPath: isEndlessMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1474158744535884607, guid: 1df7f2e29d88d14438b18589e29f9430, type: 3}
       propertyPath: m_Name
       value: Exit Level Zone (1)

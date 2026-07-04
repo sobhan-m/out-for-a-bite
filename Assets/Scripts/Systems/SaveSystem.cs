@@ -31,7 +31,7 @@ public class SaveSystem : MonoBehaviour
 
     public void LoadScene()
     {
-        sceneChangeManager.LoadScene(GetScene());
+        SceneChangeManager.LoadScene(GetScene());
     }
 
     public bool HasScene()
