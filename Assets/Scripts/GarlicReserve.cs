@@ -10,13 +10,25 @@ public class GarlicReserve : MonoBehaviour
 
 	void Awake()
 	{
+        Debug.Log("GarlicReserve.Awake()");
 		if (isEndlessMode)
         {
             DontDestroyOnLoad(this.gameObject);
             GarlicReserve[] garlicReserves = FindObjectsByType<GarlicReserve>(FindObjectsSortMode.None);
             if (garlicReserves.Length > 1)
             {
-                Destroy(this);
+                Debug.Log("GarlicReserve.Awake() Destroying This");
+                Debug.Log("GarlicReserve.Awake() Destroying This " + garlicCount);
+                Destroy(this.gameObject);
+            }
+        } else
+        {
+            GarlicReserve[] garlicReserves = FindObjectsByType<GarlicReserve>(FindObjectsSortMode.None);
+            foreach (GarlicReserve garlicReserve in garlicReserves) {
+                if (garlicReserve != this)
+                {
+                    Destroy(garlicReserve);
+                }
             }
         }
 	}
@@ -37,6 +49,7 @@ public class GarlicReserve : MonoBehaviour
 
     public void UseGarlic()
     {
+        Debug.Log("Now Have " + garlicCount + " garlic");
         --garlicCount;
     }
 }
