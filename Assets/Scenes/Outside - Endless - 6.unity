@@ -4308,8 +4308,8 @@ MonoBehaviour:
   - {fileID: 977789258}
   - {fileID: 300281513}
   - {fileID: 1746609475}
-  minCount: 3
-  maxCount: 5
+  minCount: 2
+  maxCount: 4
 --- !u!1 &945159139
 GameObject:
   m_ObjectHideFlags: 0

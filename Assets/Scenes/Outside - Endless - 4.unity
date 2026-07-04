@@ -995,8 +995,8 @@ MonoBehaviour:
   - {fileID: 956788360}
   - {fileID: 1106528308}
   - {fileID: 2081554620}
-  minCount: 4
-  maxCount: 7
+  minCount: 2
+  maxCount: 5
 --- !u!1 &804101921
 GameObject:
   m_ObjectHideFlags: 0

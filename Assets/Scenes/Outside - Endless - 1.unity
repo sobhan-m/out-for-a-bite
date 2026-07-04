@@ -213,7 +213,7 @@ MonoBehaviour:
   - {fileID: 2008492515}
   - {fileID: 865871365}
   minCount: 1
-  maxCount: 4
+  maxCount: 3
 --- !u!1 &294880197
 GameObject:
   m_ObjectHideFlags: 0
