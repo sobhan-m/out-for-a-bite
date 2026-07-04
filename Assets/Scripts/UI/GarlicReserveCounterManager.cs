@@ -9,7 +9,7 @@ public class BulletReserveCounterManager : MonoBehaviour
     private int cachedCount;
     private GarlicReserve garlicReserve;
 
-    private void Awake()
+    private void Start()
     {
         garlicReserve = FindObjectOfType<GarlicReserve>();
         cachedCount = garlicReserve.garlicCount;
@@ -18,11 +18,6 @@ public class BulletReserveCounterManager : MonoBehaviour
 
     void Update()
     {
-        if (garlicReserve == null)
-        {
-            // Happens for endless mode when we delete it on awake.
-            garlicReserve = FindObjectOfType<GarlicReserve>();
-        }
         if (cachedCount != garlicReserve.garlicCount)
         {
             cachedCount = garlicReserve.garlicCount;

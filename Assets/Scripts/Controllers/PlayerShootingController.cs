@@ -36,9 +36,12 @@ public class PlayerShootingController : MonoBehaviour
         actions = FindObjectOfType<InputActionContainingSystem>().actions;
         shootAction = actions.FindActionMap("Player").FindAction("Shoot");
 
-        garlicReserve = FindObjectOfType<GarlicReserve>();
-
         shootingCooldown = new Meter(0, secondsBetweenShots);
+    }
+
+    private void Start()
+    {
+        garlicReserve = FindObjectOfType<GarlicReserve>();
     }
 
     void Update()

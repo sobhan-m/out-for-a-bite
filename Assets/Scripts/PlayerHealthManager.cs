@@ -21,10 +21,14 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
         cam = Camera.main;
         health = new Meter(0, maxHealth, maxHealth);
         spriteRenderer = GetComponent<SpriteRenderer>();
-        garlicReserve = FindObjectOfType<GarlicReserve>();
     }
 
-    public void Die()
+	void Start()
+	{
+		garlicReserve = FindObjectOfType<GarlicReserve>();
+	}
+
+	public void Die()
     {
         if (isDead)
         {
