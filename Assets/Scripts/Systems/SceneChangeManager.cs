@@ -37,6 +37,12 @@ public class SceneChangeManager : MonoBehaviour
         return GetActiveSceneName().Contains("Outside");
     }
 
+    public static bool IsEndlessMode()
+    {
+        string currentSceneName = SceneChangeManager.GetActiveSceneName();
+        return currentSceneName.Contains("Endless") || currentSceneName == SceneChangeManager.GAME_OVER_MENU;
+    }
+
     public static void LoadRandomEndlessModeScene()
     {
         const int MIN_ENDLESS_MAP = 1;
@@ -48,10 +54,19 @@ public class SceneChangeManager : MonoBehaviour
             i = UnityEngine.Random.Range(MIN_ENDLESS_MAP, MAX_ENDLESS_MAP + 1);
             sceneToLoad = "Outside - Endless - " + i; 
         }
-        EndlessScoreTracker endlessScoreTracker = FindObjectOfType<EndlessScoreTracker>();
-        if (endlessScoreTracker != null)
+        if (EndlessScoreTracker.instance != null)
         {
-            endlessScoreTracker.IncreaseLevelsCompleted();
+            if (IsEndlessMode())
+            {
+                EndlessScoreTracker.instance.IncreaseLevelsCompleted();
+            } else
+            {
+                EndlessScoreTracker.ClearInstance();
+            }
+        }
+        if (EndlessScoreTracker.instance != null && !IsEndlessMode())
+        {
+            EndlessScoreTracker.instance.IncreaseLevelsCompleted();
         }
         LoadScene(sceneToLoad);
     }

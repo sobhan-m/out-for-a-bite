@@ -7,20 +7,14 @@ public class EndlessScoreManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
     private int cachedCount;
-    private EndlessScoreTracker scoreTracker;
     
     void Start()
     {
-        scoreTracker = FindObjectOfType<EndlessScoreTracker>();
-        cachedCount = scoreTracker.GetLevelsCompleted();
+        cachedCount = EndlessScoreTracker.instance.GetLevelsCompleted();
     }
 
     void Update()
     {
-        if (cachedCount != scoreTracker.GetLevelsCompleted())
-        {
-            cachedCount = scoreTracker.GetLevelsCompleted();
-            text.text = cachedCount.ToString();
-        }
+        text.text = EndlessScoreTracker.instance.GetLevelsCompleted().ToString();
     }
 }

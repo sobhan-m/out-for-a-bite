@@ -11,7 +11,6 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
     private Meter health;
     private SpriteRenderer spriteRenderer;
     private bool isDead = false;
-    private GarlicReserve garlicReserve;
     private Camera cam;
 
     public UnityEvent deathEvent;
@@ -22,11 +21,6 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
         health = new Meter(0, maxHealth, maxHealth);
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-
-	void Start()
-	{
-		garlicReserve = FindObjectOfType<GarlicReserve>();
-	}
 
 	public void Die()
     {
@@ -48,9 +42,9 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable, IKillable
     public void TakeDamage(float damage)
     {
         // Use bullet as shield.
-        if (garlicReserve.HasGarlic())
+        if (GarlicReserve.instance.HasGarlic())
         {
-            garlicReserve.UseGarlic();
+            GarlicReserve.instance.UseGarlic();
             AddDamageTakenIndication();
             return;
         }

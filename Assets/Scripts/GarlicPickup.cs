@@ -7,7 +7,7 @@ public class AmmoPickup : MonoBehaviour, IPickupable
     [SerializeField] private int ammoCount = 1;
     public void PickUp()
     {
-        FindObjectOfType<GarlicReserve>().garlicCount += ammoCount;
+        GarlicReserve.instance.garlicCount += ammoCount;
         Destroy(gameObject);
     }
 }

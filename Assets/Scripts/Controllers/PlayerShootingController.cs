@@ -13,7 +13,6 @@ public class PlayerShootingController : MonoBehaviour
     private Meter shootingCooldown;
 
     // Bullets
-    private GarlicReserve garlicReserve;
 
     // Input
     private InputActionAsset actions;
@@ -37,11 +36,6 @@ public class PlayerShootingController : MonoBehaviour
         shootAction = actions.FindActionMap("Player").FindAction("Shoot");
 
         shootingCooldown = new Meter(0, secondsBetweenShots);
-    }
-
-    private void Start()
-    {
-        garlicReserve = FindObjectOfType<GarlicReserve>();
     }
 
     void Update()
@@ -72,7 +66,7 @@ public class PlayerShootingController : MonoBehaviour
             return;
 		}
 
-        if (shootingCooldown.IsEmpty() && garlicReserve.HasGarlic())
+        if (shootingCooldown.IsEmpty() && GarlicReserve.instance.HasGarlic())
         {
             Shoot();
         }
@@ -90,7 +84,7 @@ public class PlayerShootingController : MonoBehaviour
     {
         shootEvent.Invoke();
 
-        garlicReserve.UseGarlic();
+        GarlicReserve.instance.UseGarlic();
 
         CreateBullet();
         AudioSource.PlayClipAtPoint(shotSoundClip, cam.transform.position);

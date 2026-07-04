@@ -3,26 +3,33 @@ using UnityEngine;
 public class EndlessScoreTracker : MonoBehaviour
 {
     private int levelsCompleted;
+    public static EndlessScoreTracker instance { private set; get; }
 	void Awake()
 	{
-        string currentSceneName = SceneChangeManager.GetActiveSceneName();
-        bool isEndless = currentSceneName.Contains("Endless") || currentSceneName == SceneChangeManager.GAME_OVER_MENU;
-		if (!isEndless)
+		if (!SceneChangeManager.IsEndlessMode())
         {
             Debug.Log("is not endless so deleting");
             Destroy(this.gameObject);
         }  else
         {
             Debug.Log("is endless");
-            DontDestroyOnLoad(this.gameObject);
-            EndlessScoreTracker[] trackers = FindObjectsByType<EndlessScoreTracker>(FindObjectsSortMode.None);
-            if (trackers.Length > 1)
+
+            if (instance != null)
             {
-                Debug.Log("deleting this + " + levelsCompleted);
                 Destroy(this.gameObject);
+            } else
+            {
+                instance = this;
+                DontDestroyOnLoad(this.gameObject);
             }
         }
 	}
+
+    public static void ClearInstance()
+    {
+        Destroy(instance);
+        instance = null;
+    }
 
     public void IncreaseLevelsCompleted()
     {

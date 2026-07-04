@@ -8,28 +8,27 @@ public class GarlicReserve : MonoBehaviour
     [SerializeField] 
     private bool isEndlessMode = false;
 
+    public static GarlicReserve instance {private set; get;}
+
 	void Awake()
 	{
-        Debug.Log("GarlicReserve.Awake()");
 		if (isEndlessMode)
         {
-            DontDestroyOnLoad(this.gameObject);
-            GarlicReserve[] garlicReserves = FindObjectsByType<GarlicReserve>(FindObjectsSortMode.None);
-            if (garlicReserves.Length > 1)
+            if (instance != null)
             {
-                Debug.Log("GarlicReserve.Awake() Destroying This");
-                Debug.Log("GarlicReserve.Awake() Destroying This " + garlicCount);
                 Destroy(this.gameObject);
+            } else
+            {
+                instance = this;
+                DontDestroyOnLoad(this.gameObject);
             }
         } else
         {
-            GarlicReserve[] garlicReserves = FindObjectsByType<GarlicReserve>(FindObjectsSortMode.None);
-            foreach (GarlicReserve garlicReserve in garlicReserves) {
-                if (garlicReserve != this)
-                {
-                    Destroy(garlicReserve);
-                }
+            if (instance != null)
+            {
+                Destroy(instance.gameObject);
             }
+            instance = this;
         }
 	}
 
