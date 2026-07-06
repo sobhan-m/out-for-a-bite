@@ -6,10 +6,16 @@ public class SceneChangeManager : MonoBehaviour
 {
     public static string GAME_OVER_MENU = "Game Over Menu";
     public static string MAIN_MENU = "Main Menu";
+    public static string NEW_GAME_SCENE = "Outside - 1";
 
     public static void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public static void LoadNewGameScene()
+    {
+        LoadScene(NEW_GAME_SCENE);
     }
     
     public void LoadNextScene()
