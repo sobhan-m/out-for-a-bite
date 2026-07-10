@@ -43,10 +43,10 @@ public class MusicPlayer : MonoBehaviour
 
     public AudioClip PickSong()
     {
-        int songIndex = Random.Range(0, songs.Length - 1);
+        int songIndex = Random.Range(0, songs.Length);
         while (songIndex == lastSongIndex && songs.Length > 1)
         {
-            songIndex = Random.Range(0, songs.Length - 1);
+            songIndex = Random.Range(0, songs.Length);
         }
         lastSongIndex = songIndex;
         return songs[songIndex];
