@@ -10,7 +10,8 @@ public class SceneChangeManager : MonoBehaviour
 
     public static void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        FindObjectOfType<LoadingScreenManager>().FadeInLoadingScreen();
+        SceneManager.LoadSceneAsync(sceneName);
     }
 
     public static void LoadNewGameScene()
@@ -20,7 +21,8 @@ public class SceneChangeManager : MonoBehaviour
     
     public void LoadNextScene()
 	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        FindObjectOfType<LoadingScreenManager>().FadeInLoadingScreen();
+		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 
     public void QuitGame()
