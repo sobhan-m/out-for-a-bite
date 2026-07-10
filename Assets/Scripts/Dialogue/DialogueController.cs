@@ -20,6 +20,7 @@ public class DialogueController : MonoBehaviour
     // Audio
     [SerializeField] private AudioClip typingEffect;
     private AudioSource audioSource;
+    private float audioVolume;
 
     private void Awake()
     {
@@ -30,11 +31,27 @@ public class DialogueController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = typingEffect;
         audioSource.loop = true;
+        audioVolume = audioSource.volume;
 
         Populate();
     }
 
-    private void OnEnable()
+	void Update()
+	{
+		if (isPrinting)
+        {
+            if (PauseController.isPaused && audioSource.volume > 0)
+            {
+                audioSource.volume = 0;   
+            }
+            if (!PauseController.isPaused && audioSource.volume == 0)
+            {
+                audioSource.volume = audioVolume;
+            }
+        }
+	}
+
+	private void OnEnable()
     {
         nextAction.performed += NextDialogue;
         nextAction.Enable();
@@ -113,6 +130,11 @@ public class DialogueController : MonoBehaviour
 
     private void NextDialogue(InputAction.CallbackContext context)
     {
+        if (PauseController.isPaused)
+        {
+            return;
+        }
+
         if (isPrinting)
         {
             CancelPrinting();
