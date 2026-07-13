@@ -102,6 +102,9 @@ EditorBuildSettings:
     path: Assets/Scenes/24 - Dinner Table.unity
     guid: 6c2fd11c44c530f4f9f87822b900aae1
   - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: cca0e2ee23a793f449063cbff0dc8714
+  - enabled: 1
     path: Assets/Scenes/Game Over Menu.unity
     guid: 6f450331a85c6cf4c80e2d8fe509d793
   - enabled: 1

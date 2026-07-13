@@ -211,6 +211,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Credits",
+            "id": "91ac81c3-9d22-4a49-a0b5-efcce5ea89a4",
+            "actions": [
+                {
+                    "name": "Next",
+                    "type": "Button",
+                    "id": "b006892b-f38f-49cf-935c-72ba78138d47",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "20f9d795-9a73-4a5a-af4a-e79fdd4639f1",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f694ad5b-e6ed-4fcd-bfd1-a3c20f558bde",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
