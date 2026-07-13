@@ -157,7 +157,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  strikethroughSoundEffect: {fileID: 8300000, guid: d4157a9c3a0494a448bd1b7acf8c0053, type: 3}
+  strikethroughSoundEffect: {fileID: 8300000, guid: 8ec61db53d8608c488288bd1f07c046d, type: 3}
   spawnLocations:
   - {fileID: 0}
   - {fileID: 0}

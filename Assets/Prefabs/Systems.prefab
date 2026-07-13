@@ -119,8 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00bdb27210003034893bb835686a18fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialChecklist:
-  - {fileID: 11400000, guid: f9c6feeb2d5d5ee4b8f02f885961b3fd, type: 2}
   secondsBetweenCharacters: 0.05
   pickupIngredient:
     m_PersistentCalls:
@@ -137,7 +135,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  strikethroughSoundEffect: {fileID: 8300000, guid: d4157a9c3a0494a448bd1b7acf8c0053, type: 3}
+  strikethroughSoundEffect: {fileID: 8300000, guid: 8ec61db53d8608c488288bd1f07c046d, type: 3}
+  initialChecklist:
+  - {fileID: 11400000, guid: f9c6feeb2d5d5ee4b8f02f885961b3fd, type: 2}
 --- !u!82 &3679973045003793619
 AudioSource:
   m_ObjectHideFlags: 0
@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   garlicCount: 3
+  isEndlessMode: 0
 --- !u!114 &8133255031477593255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,4 +273,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 861d137c3a57a0346b0facad05ed1976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGarlicLoverMode: 0
