@@ -8,6 +8,11 @@ public class ChecklistSystem : AbstractChecklistSystem
 
 	void Awake()
 	{
+        if (!SceneChangeManager.IsCombatScene())
+        {
+            return;
+        }
+        
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = strikethroughSoundEffect;
 
