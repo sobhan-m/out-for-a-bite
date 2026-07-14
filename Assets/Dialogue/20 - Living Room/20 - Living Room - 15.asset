@@ -15,7 +15,7 @@ MonoBehaviour:
   speaker: Nonna
   dialogueText: "Imagine cooking your entire life, dedicating yourself wholly to
     your craft only to have that ability \u2014 and all the time and effort that
-    went into it mastering it \u2014 stripped away from you."
+    went into mastering it \u2014 stripped away from you."
   farLeftImage: {fileID: 0}
   centreLeftImage: {fileID: 21300000, guid: 1b634806b0f471f4aa6046e5cdc859b4, type: 3}
   centreRightImage: {fileID: 21300000, guid: 0f8a3ff35df1279479ba5863bb323847, type: 3}
