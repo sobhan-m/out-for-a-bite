@@ -7,6 +7,8 @@ public class SceneChangeManager : MonoBehaviour
     public static string GAME_OVER_MENU = "Game Over Menu";
     public static string MAIN_MENU = "Main Menu";
     public static string NEW_GAME_SCENE = "Outside - 1";
+    public static string CREDITS = "Credits";
+
 
     public static void LoadScene(string sceneName)
     {
@@ -38,6 +40,11 @@ public class SceneChangeManager : MonoBehaviour
     public void LoadMainMenu()
 	{
 		LoadScene(MAIN_MENU);
+	}
+
+    public static void LoadCredits()
+	{
+		LoadScene(CREDITS);
 	}
 
     public static bool IsCombatScene()
