@@ -12714,7 +12714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4634816722321218104, guid: 5bb9052b439d4d345987854d57d14a26, type: 3}
       propertyPath: spawnLocations.Array.size
-      value: 29
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 4634816722321218104, guid: 5bb9052b439d4d345987854d57d14a26, type: 3}
       propertyPath: spawnLocations.Array.data[0]
@@ -12831,7 +12831,7 @@ PrefabInstance:
     - target: {fileID: 4634816722321218104, guid: 5bb9052b439d4d345987854d57d14a26, type: 3}
       propertyPath: spawnLocations.Array.data[28]
       value: 
-      objectReference: {fileID: 1478431411}
+      objectReference: {fileID: 0}
     - target: {fileID: 4634816722321218104, guid: 5bb9052b439d4d345987854d57d14a26, type: 3}
       propertyPath: pickupIngredient.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
@@ -13476,37 +13476,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1478431410
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1478431411}
-  m_Layer: 0
-  m_Name: Spawn (28)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1478431411
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1478431410}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.92, y: 27.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1525036825}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1493047271
 GameObject:
   m_ObjectHideFlags: 0
@@ -13626,7 +13595,6 @@ Transform:
   - {fileID: 1779633816}
   - {fileID: 1779269549}
   - {fileID: 582229526}
-  - {fileID: 1478431411}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1547673187
