@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 4 - Roof - 15
   m_EditorClassIdentifier: 
   speaker: Rina
-  dialogueText: I just didn't want to hear Momma and Nonna arguing again.
+  dialogueText: I just didn't want to hear Mamma and Nonna arguing again.
   farLeftImage: {fileID: 0}
   centreLeftImage: {fileID: 21300000, guid: 1b634806b0f471f4aa6046e5cdc859b4, type: 3}
   centreRightImage: {fileID: 21300000, guid: a3fc254b2e374e349865d697c99b49d3, type: 3}
