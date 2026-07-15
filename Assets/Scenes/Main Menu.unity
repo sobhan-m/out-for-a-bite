@@ -193,7 +193,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2111788503640229085, guid: f4c14b3940bdd534f8c26540e3b4076d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2139580462}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7968820149422415330, guid: f4c14b3940bdd534f8c26540e3b4076d, type: 3}
       insertIndex: 7
@@ -241,6 +244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 861d137c3a57a0346b0facad05ed1976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &55266888 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2111788503640229085, guid: f4c14b3940bdd534f8c26540e3b4076d, type: 3}
+  m_PrefabInstance: {fileID: 55266883}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &55266895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,6 +552,50 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7509474695610496259, guid: ec631172a19a7a14c808f12a9e3924df, type: 3}
   m_PrefabInstance: {fileID: 3000678942357560356}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2139580461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2139580462}
+  - component: {fileID: 2139580463}
+  m_Layer: 0
+  m_Name: Score Tracker Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2139580462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139580461}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 55266888}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2139580463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139580461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526dab4e92f67164c8ef0027024f1abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3000678942357560356
 PrefabInstance:
   m_ObjectHideFlags: 0
