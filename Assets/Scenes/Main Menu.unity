@@ -613,6 +613,10 @@ PrefabInstance:
       value: -125
       objectReference: {fileID: 0}
     - target: {fileID: 1992196858246322486, guid: ec631172a19a7a14c808f12a9e3924df, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992196858246322486, guid: ec631172a19a7a14c808f12a9e3924df, type: 3}
       propertyPath: m_ReferenceResolution.y
       value: 960
       objectReference: {fileID: 0}
@@ -627,6 +631,10 @@ PrefabInstance:
     - target: {fileID: 4457163982081878889, guid: ec631172a19a7a14c808f12a9e3924df, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692888351044384345, guid: ec631172a19a7a14c808f12a9e3924df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5310705902235748687, guid: ec631172a19a7a14c808f12a9e3924df, type: 3}
       propertyPath: m_Pivot.x
